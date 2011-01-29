@@ -29,6 +29,14 @@ public class Usuario {
 		return this.nombre;
 	}
 
+	public String getPassword() {
+		return this.password;
+	}
+	
+	public String getLogin() {
+		return this.login;
+	}
+	
 	public void setId(Integer integer) {
 		this.id = integer;
 		
