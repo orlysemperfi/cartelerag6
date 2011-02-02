@@ -5,6 +5,7 @@ public class Pelicula {
 	private String nombre;
 	private String anioProduccion;
 	private String genero;
+	private Intger flagComentario;		// 1 permitido	- 0 no permitido
 	
 	//Id
 	public void setId(String valor) {
@@ -41,5 +42,13 @@ public class Pelicula {
 	public Integer getNombre() {
 		return this.nombre;
 	}
+
+	//Flag Comentario
+	public void setFlagComentario(Integer valor) {
+		this.flagComentario = valor;
+	}
 	
+	public Integer getFlagComentario() {
+		return this.flagComentario;
+	}
 }
