@@ -5,6 +5,7 @@ public class Usuario {
 	private String login;
 	private String password;
 	private Integer id;
+	private Integer flagComentario;
 	
 	public void setNombre(String string) {
 		this.nombre = string;
@@ -42,4 +43,12 @@ public class Usuario {
 		
 	}
 
+	public void setFlagComentario(Integer valor) {
+		this.flagComentario = valor;
+	}
+	
+	public Integer getFlagComentario() {
+		return this.flagComentario;
+	}
+	
 }
