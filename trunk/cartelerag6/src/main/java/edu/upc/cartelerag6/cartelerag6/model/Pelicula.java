@@ -1,14 +1,14 @@
 package edu.upc.cartelerag6.cartelerag6.model;
 
 public class Pelicula {
-	private String id;
+	private Integer id;
 	private String nombre;
 	private String anioProduccion;
 	private String genero;
 	private Intger flagComentario;		// 1 permitido	- 0 no permitido
 	
 	//Id
-	public void setId(String valor) {
+	public void setId(Integer valor) {
 		this.id = valor;
 	}
 	
