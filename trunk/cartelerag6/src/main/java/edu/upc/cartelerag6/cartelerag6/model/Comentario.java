@@ -52,4 +52,11 @@ public class Comentario {
 		return this.estado;
 	}
 	
+	public Comentario(Integer idPelicula, Integer idUsuario, Integer idComentario, String comentario){
+		this.idPelicula = idPelicula;
+		this.idUsuario=  idUsuario;
+		this.idComentario =  idComentario;
+		this.comentario =  comentario;
+		this.estado = "Pendiente";	
+	}
 }
