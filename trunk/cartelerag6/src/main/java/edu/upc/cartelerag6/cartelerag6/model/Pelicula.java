@@ -5,7 +5,7 @@ public class Pelicula {
 	private String nombre;
 	private String anioProduccion;
 	private String genero;
-	private Intger flagComentario;		// 1 permitido	- 0 no permitido
+	private Integer flagComentario;		// 1 permitido	- 0 no permitido
 	
 	//Id
 	public void setId(Integer valor) {
@@ -18,10 +18,10 @@ public class Pelicula {
 	
 	//Nombre
 	public void setNombre(String valor) {
-		this.id = valor;
+		this.nombre = valor;
 	}
 	
-	public Integer getNombre() {
+	public String getNombre() {
 		return this.nombre;
 	}
 
@@ -30,7 +30,7 @@ public class Pelicula {
 		this.anioProduccion = valor;
 	}
 	
-	public Integer getAnioProduccion() {
+	public String getAnioProduccion() {
 		return this.anioProduccion;
 	}
 	
@@ -39,8 +39,8 @@ public class Pelicula {
 		this.genero = valor;
 	}
 	
-	public Integer getNombre() {
-		return this.nombre;
+	public String getGenero() {
+		return this.genero;
 	}
 
 	//Flag Comentario
