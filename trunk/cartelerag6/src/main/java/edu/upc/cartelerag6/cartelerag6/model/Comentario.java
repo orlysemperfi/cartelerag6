@@ -25,7 +25,7 @@ public class Comentario {
 		return this.idUsuario;
 	}
 	
-	//Comentario
+	//Id Comentario
 	public void setIdComentario(Integer valor) {
 		this.idComentario = valor;
 	}
@@ -34,6 +34,15 @@ public class Comentario {
 		return this.idComentario;
 	}
 
+	//Comentario
+	public void setComentario(String valor) {
+		this.comentario = valor;
+	}
+	
+	public String getComentario() {
+		return this.comentario;
+	}	
+	
 	//Estado
 	public void setEstado(String valor) {
 		this.estado = valor;
