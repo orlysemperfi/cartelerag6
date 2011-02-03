@@ -1,13 +1,14 @@
 package edu.upc.cartelerag6.cartelerag6.model;
 
 public class Comentario {
-	private String idPelicula;
-	private String idUsuario;
+	private Integer idPelicula;
+	private Integer idUsuario;
+	private Integer idComentario;
 	private String comentario;
 	private String estado;			// Pendiente - Rechazado - Publicado
 	
 	//Id Pelicula
-	public void setIdPelicula(String valor) {
+	public void setIdPelicula(Integer valor) {
 		this.idPelicula = valor;
 	}
 	
@@ -16,7 +17,7 @@ public class Comentario {
 	}
 
 	//Id Usuario
-	public void setIdUsuario(String valor) {
+	public void setIdUsuario(Integer valor) {
 		this.idUsuario = valor;
 	}
 	
@@ -25,12 +26,12 @@ public class Comentario {
 	}
 	
 	//Comentario
-	public void setComentario(String valor) {
-		this.comentario = valor;
+	public void setIdComentario(Integer valor) {
+		this.idComentario = valor;
 	}
 	
-	public Integer getComentario() {
-		return this.comentario;
+	public Integer getIdComentario() {
+		return this.idComentario;
 	}
 
 	//Estado
