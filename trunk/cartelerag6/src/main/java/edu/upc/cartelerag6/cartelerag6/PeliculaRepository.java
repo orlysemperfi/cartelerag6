@@ -9,15 +9,15 @@ public class PeliculaRepository {
 	}
 	
 	
-	public String registrarPelicula(String nombrePelicula, String anioProduccion, String genero, Integer flagComentario) {
+	public Integer registrarPelicula(String nombrePelicula, String anioProduccion, String genero, Integer flagComentario) {
 
 	}
 	
-	public void actualizarPelicula(String IdPelicula, String nombrePelicula, String anioProduccion, String genero, Integer flagComentario) {
+	public void actualizarPelicula(Integer IdPelicula, String nombrePelicula, String anioProduccion, String genero, Integer flagComentario) {
 
 	}
 
-	public void eliminarPelicula(String idPelicula) {
+	public void eliminarPelicula(Integer idPelicula) {
 		
 	}
 
@@ -25,7 +25,7 @@ public class PeliculaRepository {
 		return peliculas;
 	}
 	
-	public Pelicula listarPelicula(String idPelicula) {
+	public Pelicula listarPelicula(Integer idPelicula) {
 		
 	}
 	
