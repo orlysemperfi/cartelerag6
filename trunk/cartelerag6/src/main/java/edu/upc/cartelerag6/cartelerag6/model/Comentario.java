@@ -39,7 +39,7 @@ public class Comentario {
 		this.estado = valor;
 	}
 	
-	public Integer getEstado() {
+	public String getEstado() {
 		return this.estado;
 	}
 	
