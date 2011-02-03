@@ -1,4 +1,6 @@
 package edu.upc.cartelerag6.cartelerag6.repository;
+import java.util.ArrayList;
+import edu.upc.cartelerag6.cartelerag6.model.Comentario;
 
 public class ComentarioRepository {
 
@@ -10,17 +12,16 @@ public class ComentarioRepository {
 	
 	public Integer registrarComentario(Integer idComentario, Integer idPelicula, Integer idUsuario, String comentario) {
 		if (listarComentario(idPelicula, idComentario) == null) {
-			String estado = "Pendiente";
-			Comentario comentario = new Comentario(IdComentario, idPelicula, idUsuario, Comentario, estado)
-			comentarios.add(comentario);
+			Comentario nuevoComentario = new Comentario(idComentario, idPelicula, idUsuario, comentario);
+			comentarios.add(nuevoComentario);
 		}
-		
+		return 0;
 	}
 
-	public void actualizarEstado(Integer idComentario, String estado) {
+	public void actualizarEstado(Integer idPelicula, Integer idComentario, String estado) {
 		Comentario comentario = listarComentario(idPelicula, idComentario);
 		if (comentario != null) {
-			comentarios.setEstado(estado);
+			comentario.setEstado(estado);
 		}
 	}
 	
