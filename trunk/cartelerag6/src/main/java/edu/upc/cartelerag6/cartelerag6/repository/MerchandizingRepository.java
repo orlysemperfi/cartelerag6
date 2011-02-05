@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import edu.upc.cartelerag6.cartelerag6.model.Merchandizing;
 import edu.upc.cartelerag6.cartelerag6.model.Producto;
-import edu.upc.cartelerag6.cartelerag6.repository.ProductoRepository;
+
 
 public class MerchandizingRepository {
 
