@@ -1,29 +1,13 @@
 package edu.upc.cartelerag6.cartelerag6.model;
 
+import java.util.Date;
+
 public class Comentario {
-	private Integer idPelicula;
-	private Integer idUsuario;
 	private Integer idComentario;
 	private String comentario;
 	private String estado;			// Pendiente - Rechazado - Publicado
+	private Date fechaRegistro;
 	
-	//Id Pelicula
-	public void setIdPelicula(Integer valor) {
-		this.idPelicula = valor;
-	}
-	
-	public Integer getIdPelicula() {
-		return this.idPelicula;
-	}
-
-	//Id Usuario
-	public void setIdUsuario(Integer valor) {
-		this.idUsuario = valor;
-	}
-	
-	public Integer getIdUsuario() {
-		return this.idUsuario;
-	}
 	
 	//Id Comentario
 	public void setIdComentario(Integer valor) {
@@ -52,11 +36,20 @@ public class Comentario {
 		return this.estado;
 	}
 	
-	public Comentario(Integer idPelicula, Integer idUsuario, Integer idComentario, String comentario){
-		this.idPelicula = idPelicula;
-		this.idUsuario=  idUsuario;
+	//fecha Registro
+	public void setFechaRegistro(Date valor) {
+		this.fechaRegistro = valor;
+	}
+	
+	public Date getFechaRegistro() {
+		return this.fechaRegistro;
+	}
+
+	public Comentario(Integer idComentario, String comentario){
 		this.idComentario =  idComentario;
 		this.comentario =  comentario;
-		this.estado = "Pendiente";	
+		this.estado = "Pendiente";
+		Date d = new Date();
+		this.fechaRegistro = d; 
 	}
 }
