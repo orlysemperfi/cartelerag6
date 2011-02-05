@@ -10,16 +10,18 @@ public class ComentarioRepository {
 		comentarios = new ArrayList<Comentario>();
 	}
 	
-	public Integer registrarComentario(Integer idComentario, Integer idPelicula, Integer idUsuario, String comentario) {
-		if (listarComentario(idPelicula, idComentario) == null) {
-			Comentario nuevoComentario = new Comentario(idComentario, idPelicula, idUsuario, comentario);
+	public void registrarComentario(Integer idComentario, String comentario) {
+		if (listarComentario(idComentario) == null) {
+			Comentario nuevoComentario = new Comentario(idComentario, comentario);
 			comentarios.add(nuevoComentario);
 		}
-		return 0;
+		else{
+			throw new RuntimeException("Código ya registrado");
+		}
 	}
 
-	public void actualizarEstado(Integer idPelicula, Integer idComentario, String estado) {
-		Comentario comentario = listarComentario(idPelicula, idComentario);
+	public void actualizarEstado(Integer idComentario, String estado) {
+		Comentario comentario = listarComentario(idComentario);
 		if (comentario != null) {
 			comentario.setEstado(estado);
 		}
@@ -29,13 +31,19 @@ public class ComentarioRepository {
 		return comentarios;
 	}
 	
-	public Comentario listarComentario(Integer idPelicula , Integer idComentario) {
+	public Comentario listarComentario(Integer idComentario) {
 		for (Comentario comentario: comentarios) {
-			if ((comentario.getIdPelicula().equals(idPelicula)) &&
-					(comentario.getIdComentario().equals(idComentario))) {
+			if ((comentario.getIdComentario().equals(idComentario))) {
 				return comentario;
 			}
 		}
 		return null;
+	}
+	
+	public void eliminarComentario(Integer idComentario) {
+		Comentario comentario = listarComentario(idComentario);
+		if (comentario != null) {
+			comentarios.remove(comentario);
+		}
 	}	
 }
