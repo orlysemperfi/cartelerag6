@@ -17,7 +17,7 @@ public class UsuarioTest extends TestCase {
 	
 	
 	@Test
-	public void testSugerencia() {
+	public void testUsuario() {
 		UsuarioRepositoryI usuario = new StubUsuarioRepository();
 		assertNotNull(usuario.encontrarUsuario("dbecerradi"));
 		assertEquals("true", usuario.validacionUsuario("dbecerradi"));
