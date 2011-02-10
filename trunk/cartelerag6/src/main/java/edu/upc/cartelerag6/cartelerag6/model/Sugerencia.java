@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Sugerencia {
 	
-	private Integer idSugerencia;
+	private String idSugerencia;
 	private String descripcion;
 	private String estado; //Habilitado - Deshabilitado
 	private String fecha_registro;
@@ -12,7 +12,7 @@ public class Sugerencia {
 	private String flag_atencion; //Atendido - Desatendido
 	private ArrayList<Sugerencia>sugerencias; 
 	
-	public Sugerencia(Integer idSugerencia, String descripcion, String estado,
+	public Sugerencia(String idSugerencia, String descripcion, String estado,
 			String fecha_registro, String fecha_atencion, String flag_atencion) {
 	  this.idSugerencia = idSugerencia;
 	  this.descripcion = descripcion;
@@ -21,10 +21,10 @@ public class Sugerencia {
 	  this.fecha_atencion = fecha_atencion;
 	  this.flag_atencion = flag_atencion;
 	}
-	public Integer getIdSugerencia() {
+	public String getIdSugerencia() {
 		return idSugerencia;
 	}
-	public void setIdSugerencia(Integer idSugerencia) {
+	public void setIdSugerencia(String idSugerencia) {
 		this.idSugerencia = idSugerencia;
 	}
 	
@@ -60,7 +60,7 @@ public class Sugerencia {
 	}
 	
 	//Registro de sugerencias
-	public void registrarSugerencias(Integer Id, String descp, String estado, String fec_Regis, String fec_Aten, String flag ){
+	public void registrarSugerencias(String Id, String descp, String estado, String fec_Regis, String fec_Aten, String flag ){
 		buscarSugerencia(Id);
 		Sugerencia sugerencia = new Sugerencia(Id, descp, estado, fec_Regis, fec_Aten, flag);
 		sugerencias.add(sugerencia);
@@ -69,7 +69,7 @@ public class Sugerencia {
 	
 	//Buscar sugerencias por código
 	
-	public void buscarSugerencia(Integer Id) throws RuntimeException{
+	public void buscarSugerencia(String Id) throws RuntimeException{
 		 for (Sugerencia sugerencia: sugerencias) {
 			if (sugerencia.getIdSugerencia()== Id) {
 				throw new RuntimeException("Código ya registrado");
@@ -97,9 +97,9 @@ public class Sugerencia {
 	
 	//Bloquear sugerencias
 	
-	public void bloquearSugerencia(Integer Id) throws RuntimeException{
+	public void bloquearSugerencia(String Id) throws RuntimeException{
 		 for (Sugerencia sugerencia: sugerencias) {
-			if (sugerencia.getIdSugerencia()== Id) {
+			if (sugerencia.getIdSugerencia().equals(Id)) {
 				throw new RuntimeException("Código ya registrado");
 			}
 		}
