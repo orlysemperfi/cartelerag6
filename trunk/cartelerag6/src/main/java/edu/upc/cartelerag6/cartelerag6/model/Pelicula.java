@@ -6,6 +6,8 @@ public class Pelicula {
 	private String anioProduccion;
 	private String genero;
 	private Integer flagComentario;		// 1 permitido	- 0 no permitido
+	private Integer flagTrailer;
+	private String urlTriler;			
 	
 	//Id
 	public void setId(Integer valor) {
@@ -50,5 +52,33 @@ public class Pelicula {
 	
 	public Integer getFlagComentario() {
 		return this.flagComentario;
+	}
+
+	//Flag Trailer
+	public void setFlagTrailer(Integer flagTrailer) {
+		this.flagTrailer = flagTrailer;
+	}
+
+	public Integer getFlagTrailer() {
+		return flagTrailer;
+	}
+
+	//Url Trailer a visualizar
+	public void setUrlTriler(String urlTriler) {
+		this.urlTriler = urlTriler;
+	}
+
+	public String getUrlTriler() {
+		return urlTriler;
+	}
+	
+	public Pelicula(Integer id, String nombre, String anioProduccion, String genero, Integer flagComentario, Integer flagTrailer, String urlTrailer) {
+		this.id = id;
+		this.nombre = nombre;
+		this.anioProduccion = anioProduccion;
+		this.genero = genero;
+		this.flagComentario = flagComentario;
+		this.flagTrailer = flagTrailer;
+		this.urlTriler = urlTrailer;		
 	}
 }
