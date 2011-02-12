@@ -2,25 +2,24 @@ package edu.upc.cartelerag6.cartelerag6.repository;
 
 import java.util.ArrayList;
 
-import edu.upc.cartelerag6.cartelerag6.model.Merchandizing;
-import edu.upc.cartelerag6.cartelerag6.model.Producto;
 
+import edu.upc.cartelerag6.cartelerag6.model.Merchandizing;
 
 public class MerchandizingRepository {
 
-	private ArrayList<Merchandizing> merchandizings;
+	private static ArrayList<Merchandizing> merchandizings;
 	
 	public MerchandizingRepository() {
 		merchandizings = new ArrayList<Merchandizing>();
 	}
 	
 
-	public Producto mostrarProductosPelicula(Integer idPelicula) {
+	public static  void mostrarProductosPelicula(Integer idPelicula) {
 		for (Merchandizing merchandizing: merchandizings) {
 			if (merchandizing.getIdPelicula().equals(idPelicula)) {
+				System.out.println("Se Visualiza producto con Id "
+						+ merchandizing.getIdProducto().toString());					
 			}
 		}
-		return null;
 	}
-	
 }
