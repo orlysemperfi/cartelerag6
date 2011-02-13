@@ -8,10 +8,11 @@ import edu.upc.cartelerag6.cartelerag6.model.Usuario;
 
 public interface SugerenciaRepository {
 
-	public void bloquearUsuario(Usuario u1);
+	
 	public Sugerencia encontrarSugerencia(String idSugerencia);
-	public void deshabilitar(String posicion);
+	public boolean deshabilitar(String posicion);
 	public ArrayList validacionAlertas();
-
+	public Sugerencia registrarSugerencia(String idSugerencia, String descripcion, String estado,
+			String fecha_registro, String fecha_atencion, String flag_atencion);
 	
 }
