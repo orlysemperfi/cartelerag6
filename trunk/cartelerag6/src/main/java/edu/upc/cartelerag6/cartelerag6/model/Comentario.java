@@ -4,12 +4,21 @@ import java.util.Date;
 
 public class Comentario {
 	private Integer idComentario;
+	private Integer idPelicula;
 	private String comentario;
 	private String estado;			// Pendiente - Rechazado - Publicado
 	private Date fechaRegistro;
 	
 	
-	//Id Comentario
+
+	public Integer getIdPelicula() {
+		return idPelicula;
+	}
+
+	public void setIdPelicula(Integer idPelicula) {
+		this.idPelicula = idPelicula;
+	}
+
 	public void setIdComentario(Integer valor) {
 		this.idComentario = valor;
 	}
