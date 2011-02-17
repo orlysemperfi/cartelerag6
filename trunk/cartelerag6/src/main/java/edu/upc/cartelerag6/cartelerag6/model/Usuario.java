@@ -23,6 +23,11 @@ public class Usuario {
 			String telefono2, String email2, String dni2, String tipo2) {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Usuario(int idUsuario) {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Integer getIdUsuario() {
 		return idUsuario;
 	}
