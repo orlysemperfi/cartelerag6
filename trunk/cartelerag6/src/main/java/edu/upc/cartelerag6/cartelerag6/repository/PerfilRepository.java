@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import edu.upc.cartelerag6.cartelerag6.model.Perfil;
 
 public interface PerfilRepository {
-	public void registrarPerfil(Integer idPerfil, String nombre, Integer estado);
-	public void actualizarEstado(Integer idPerfil, Integer estado);
-	public ArrayList<Perfil> listarPerfiles();
-	public Perfil listarPerfil(Integer idPerfil);
-	public void eliminarPerfil(Integer idPerfil);
+	public Perfil registrarPerfil(Integer idPerfil, String nomPerfil, String estado);
+	public boolean inactivarPerfil(Integer idPerfil);
+	public Perfil obtenerPerfil(Integer idPerfil);
+	public boolean asignarPerfil_Usuario(Integer idPerfil, Integer idUsuario);
+	public boolean inactivarPerfil_Usuario(Integer idPerfil, Integer idUsuario);
+	public ArrayList obtenerListaPerfiles();
+	
 }
