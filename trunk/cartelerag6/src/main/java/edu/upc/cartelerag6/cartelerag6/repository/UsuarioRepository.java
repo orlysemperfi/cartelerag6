@@ -17,7 +17,7 @@ public interface UsuarioRepository {
 	public boolean bloqueoUsuario(Integer idUsuario);
 	public Usuario encontrarUsuario(Integer idUsuario);
 	//Para el cambio de contraseña
-	public boolean asignacionContraseña(Integer idUsuario);
+	public boolean asignacionContraseña(Integer idUsuario, String password);
 	
 	
 	
