@@ -2,39 +2,29 @@ package edu.upc.cartelerag6.cartelerag6.model;
 
 public class Perfil {
 	private Integer idPerfil;
-	private String nombre;
-	private Integer estado;
+	private String nomPerfil;
+	private String estado;
 	
-	//Id Perfil
-	public void setIdPerfil(Integer valor) {
-		this.idPerfil = valor;
+	public Perfil(String nomPerfil2, String estado2) {
+		// TODO Auto-generated constructor stub
 	}
-	
 	public Integer getIdPerfil() {
-		return this.idPerfil;
+		return idPerfil;
 	}
-	
-	//Nombre Perfil
-	public void setNombre(String valor) {
-		this.nombre = valor;
-	}
-	
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	//Estado
-	public void setEstado(Integer valor) {
-		this.estado = valor;
-	}
-	
-	public Integer getEstado() {
-		return this.estado;
-	}
-	
-	public Perfil(Integer idPerfil, String nombre, Integer estado) {
+	public void setIdPerfil(Integer idPerfil) {
 		this.idPerfil = idPerfil;
-		this.nombre = nombre;
+	}
+	public String getNomPerfil() {
+		return nomPerfil;
+	}
+	public void setNomPerfil(String nomPerfil) {
+		this.nomPerfil = nomPerfil;
+	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
 }
