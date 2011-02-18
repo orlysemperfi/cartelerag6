@@ -87,10 +87,10 @@ public class JdbcUsuarioRepository implements UsuarioRepository{
 		return validacion;
 	}
 	
-	public Usuario registrarUsuario(Integer idUsuario, String login,
+	public Usuario registrarUsuario(int idUsuario, String login,
 			String password, String estado, String nombre, String apellido,
-			String puesto, Date fec_Creacion,
-			Date fec_Caducidad, String telefono, String email,
+			String puesto, String fec_Creacion,
+			String fec_Caducidad, String telefono, String email,
 			String dni, String tipo) {
 		Usuario u = null;
 		String sql = "insert into T_USUARIO(login, password, estado, nombre, apellido, puesto, fec_Creacion, fec_Caducidad," +
@@ -106,8 +106,8 @@ public class JdbcUsuarioRepository implements UsuarioRepository{
 			ps.setString(4, nombre);
 			ps.setString(5, apellido);
 			ps.setString(6, puesto);
-			ps.setDate(7, fec_Creacion);
-			ps.setDate(8, fec_Caducidad);
+			ps.setString(7, fec_Creacion);
+			ps.setString(8, fec_Caducidad);
 			ps.setString(9, telefono);
 			ps.setString(10, email);
 			ps.setString(11, dni);
@@ -227,8 +227,8 @@ public class JdbcUsuarioRepository implements UsuarioRepository{
 				String nombre = rs.getString("nombre");
 				String apellido = rs.getString("apellido");
 				String puesto = rs.getString("puesto");
-				Date fec_Creacion = rs.getDate("fec_Creacion");
-				Date fec_Caducidad = rs.getDate("fec_Caducidad");
+				String fec_Creacion = rs.getString("fec_Creacion");
+				String fec_Caducidad = rs.getString("fec_Caducidad");
 				String telefono = rs.getString("telefono");
 				String email = rs.getString("email");
 				String dni = rs.getString("dni");
