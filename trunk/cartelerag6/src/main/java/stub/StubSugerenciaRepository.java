@@ -1,4 +1,5 @@
-package edu.upc.cartelerag6.cartelerag6.stub;
+//package edu.upc.cartelerag6.cartelerag6.stub;
+package stub;
 
 import java.util.ArrayList;
 import java.util.HashMap;

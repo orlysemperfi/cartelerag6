@@ -1,4 +1,6 @@
-package edu.upc.cartelerag6.cartelerag6.stub;
+package stub;
+
+//package edu.upc.cartelerag6.cartelerag6.stub;
 
 import java.util.Date;
 import java.util.HashMap;
