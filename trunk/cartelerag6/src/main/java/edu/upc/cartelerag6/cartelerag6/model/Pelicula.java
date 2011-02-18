@@ -15,6 +15,7 @@ public class Pelicula {
 	private String flagSubtitulo;
 	private Integer flagComentario;		// 1 permitido	- 0 no permitido
 	private String publicoObjetivo;
+	private String trailer;
 	private String sinopsis;
 	private Date fecIniCartelera;
 	private Date fecFinCartelera;
