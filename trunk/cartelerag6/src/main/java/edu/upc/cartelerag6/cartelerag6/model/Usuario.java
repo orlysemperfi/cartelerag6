@@ -10,8 +10,8 @@ public class Usuario {
 	private String nombre;
 	private String apellido;
 	private String puesto;
-	private Date fec_Creacion;
-	private Date fec_Caducidad;
+	private String fec_Creacion;
+	private String fec_Caducidad;
 	private String telefono;
 	private String email;
 	private String dni;
@@ -19,7 +19,7 @@ public class Usuario {
 	
 	public Usuario(String login2, String password2, String estado2,
 			String nombre2, String apellido2, String puesto2,
-			java.sql.Date fec_Creacion2, java.sql.Date fec_Caducidad2,
+			String fec_Creacion2, String fec_Caducidad2,
 			String telefono2, String email2, String dni2, String tipo2) {
 		// TODO Auto-generated constructor stub
 	}
@@ -70,16 +70,16 @@ public class Usuario {
 	public void setPuesto(String puesto) {
 		this.puesto = puesto;
 	}
-	public Date getFec_Creacion() {
+	public String getFec_Creacion() {
 		return fec_Creacion;
 	}
-	public void setFec_Creacion(Date fec_Creacion) {
+	public void setFec_Creacion(String fec_Creacion) {
 		this.fec_Creacion = fec_Creacion;
 	}
-	public Date getFec_Caducidad() {
+	public String getFec_Caducidad() {
 		return fec_Caducidad;
 	}
-	public void setFec_Caducidad(Date fec_Caducidad) {
+	public void setFec_Caducidad(String fec_Caducidad) {
 		this.fec_Caducidad = fec_Caducidad;
 	}
 	public String getTelefono() {
