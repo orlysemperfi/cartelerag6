@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	
 	
-	<import resource="classpath:edu/upc/cartelerag6/cartelerag6/application-config.xml"/>
+	<import resource="classpath:application-config.xml"/>
 	<!-- 
 	     Infrastructure configuration to support system testing the rewards application.
 	
