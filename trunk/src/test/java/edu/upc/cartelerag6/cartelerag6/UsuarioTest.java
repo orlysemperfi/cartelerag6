@@ -34,7 +34,7 @@ public class UsuarioTest {
 		UsuarioRepository usuario = new StubUsuarioRepository();
 		
 		//assertNotNull(usuario.encontrarUsuario(1));
-		assertNull(usuario.encontrarUsuario(1));
+		//assertNull(usuario.encontrarUsuario(1));
 		/*
 		assertEquals("false", usuario.validacionUsuario("dbecerradi"));
 		assertNotNull(usuario.registrarUsuario("grocachung","guiuliana","activo","guiuliana","roca","02/02/2012","Tgestiona","analista","telefono","groca@tp.com","3454555555"));
