@@ -21,15 +21,13 @@ public class JdbcMerchandizingRepository implements MerchandizingRepository{
 	
 
 	public ArrayList<Producto> mostrarProductosPelicula(Integer idPelicula) {
-		String sql = "select idProducto, nomProducto, precioProducto,stockProducto, caracteristicasProducto, rutaImagenProducto,estadoProducto" +
+		String sql = "select T_PRODUCTO.* " +
 		"from T_MERCHANDIZING , T_PRODUCTO " +
-		"where T_MERCHANDIZING.idProducto = T_PRODUCTO.idProducto " +
+		"WHERE estadoProducto = 'A' " +
 		"AND idPelicula = ? " +
-		"AND estadoMerchandizing = 'A'" +
-		"AND fecInicioVigencia >= ? " +
-		"AND fecFinVigencia <= ? " +
-		"AND estadoProducto = 'A'"; 
-		 
+		"AND estadoMerchandizing = 'A' " +
+		"AND T_MERCHANDIZING.idProducto = T_PRODUCTO.idProducto";
+		
 		ArrayList<Producto> producto = null;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -38,8 +36,6 @@ public class JdbcMerchandizingRepository implements MerchandizingRepository{
 			conn = dataSource.getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, idPelicula);
-			ps.setDate(2, Date.valueOf("01/01/2011") );
-			ps.setDate(3, Date.valueOf("01/01/2011") );
 			rs = ps.executeQuery();
 			producto = mapProducto(rs, idPelicula);
 		} catch (SQLException e) {
