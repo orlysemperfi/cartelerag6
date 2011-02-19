@@ -54,10 +54,10 @@ public class Comentario {
 		return this.fechaRegistro;
 	}
 
-	public Comentario(Integer idComentario, Integer idPelicula, String comentario, String estado, String fechaCreacion){
+	public Comentario(Integer idComentario, Integer idPelicula, String txComentario, String estado, String fechaCreacion){
 		this.idComentario =  idComentario;
 		this.idPelicula = idPelicula;
-		this.comentario =  comentario;
+		this.comentario =  txComentario;
 		this.estado = estado;
 		this.fechaRegistro = fechaCreacion;
 		//Date d = new Date();
