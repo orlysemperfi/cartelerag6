@@ -1,5 +1,5 @@
 package edu.upc.cartelerag6.cartelerag6;
-
+/*
 import org.junit.Test;
 import edu.upc.cartelerag6.cartelerag6.repository.ComentarioRepository;
 import edu.upc.cartelerag6.cartelerag6.repository.ComentarioRepositoryImpl;
@@ -55,3 +55,4 @@ public class ComentarioTest {
 		assertEquals("Rechazado", comentarioRepository.listarComentario(3).getEstado());
 	}
 }
+*/

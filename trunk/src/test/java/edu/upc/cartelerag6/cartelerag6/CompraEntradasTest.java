@@ -1,5 +1,5 @@
 package edu.upc.cartelerag6.cartelerag6;
-
+/*
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -22,3 +22,4 @@ public class CompraEntradasTest extends TestCase{
 		assertNotNull(compra.registrarDetalleCompra(001, "p002", 20, 21.5));
 			}
 }
+*/
