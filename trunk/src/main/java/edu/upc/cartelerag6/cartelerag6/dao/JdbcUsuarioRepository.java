@@ -227,8 +227,10 @@ public class JdbcUsuarioRepository implements UsuarioRepository{
 				String nombre = rs.getString("nombre");
 				String apellido = rs.getString("apellido");
 				String puesto = rs.getString("puesto");
-				Date fec_Creacion = rs.getDate("fec_Creacion");
-				Date fec_Caducidad = rs.getDate("fec_Caducidad");
+				//Date fec_Creacion = rs.getDate("fec_Creacion");
+				Date fec_Creacion = null;
+				//Date fec_Caducidad = rs.getDate("fec_Caducidad");
+				Date fec_Caducidad = null;
 				String telefono = rs.getString("telefono");
 				String email = rs.getString("email");
 				String dni = rs.getString("dni");
