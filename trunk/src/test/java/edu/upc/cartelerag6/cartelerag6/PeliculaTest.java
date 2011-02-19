@@ -32,6 +32,7 @@ public class PeliculaTest {
 		assertEquals("A", p1.getEstado());
 	}
 	
+	@Test
 	public void MostrarDetallePeliculaInactiva() {
 		Pelicula p1;
 		p1 = peliculaRepository.MostrarDetallePeliculaActiva(2);
@@ -39,6 +40,4 @@ public class PeliculaTest {
 		assertEquals(2, p1.getIdPelicula());
 		assertEquals("I", p1.getEstado());
 	}
-
-		
 }
