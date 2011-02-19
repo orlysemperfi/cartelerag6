@@ -1,5 +1,5 @@
 package edu.upc.cartelerag6.cartelerag6;
-
+/*
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,3 +40,4 @@ import edu.upc.cartelerag6.cartelerag6.stub.StubSugerenciaRepository;
 	
 		
 }
+*/
