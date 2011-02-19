@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import edu.upc.cartelerag6.cartelerag6.model.Comentario;
 
 public interface ComentarioRepository {
-	public void registrarComentario(Integer idComentario, String comentario);
+	public Comentario registrarComentario(Integer idComentario, Integer idPelicula, String comentario, String estado, String fechaCreacion);
 	public void actualizarEstado(Integer idComentario, String estado);
 	public ArrayList<Comentario> listarComentarios();
 	public Comentario listarComentario(Integer idComentario);
