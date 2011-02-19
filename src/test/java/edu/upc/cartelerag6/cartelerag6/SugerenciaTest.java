@@ -1,4 +1,3 @@
-package edu.upc.cartelerag6.cartelerag6;
 /*
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
@@ -41,3 +40,44 @@ import edu.upc.cartelerag6.cartelerag6.stub.StubSugerenciaRepository;
 		
 }
 */
+package edu.upc.cartelerag6.cartelerag6;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.context.annotation.Configuration;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+
+import edu.upc.cartelerag6.cartelerag6.model.Sugerencia;
+import edu.upc.cartelerag6.cartelerag6.repository.SugerenciaRepository;
+import static org.junit.Assert.*;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(
+		locations={
+				"classpath:test-infrastructure-config.xml",
+				"classpath:application-config.xml"})
+public class SugerenciaTest {
+	
+	@Autowired
+	private SugerenciaRepository sugerenciaRepository;
+
+	
+	@Test
+	public void testRegistroSugerencia() {
+		Sugerencia s1;
+		s1 = sugerenciaRepository.registrarSugerencia("Sugerencia de prueba", "Habilitado", "01/01/2011", "01/01/2011", "Desatendido");
+		assertNotNull(s1);
+		assertEquals("Sugerencia de prueba", s1.getDescripcion());
+	}
+	
+	@Test
+	public void testDeshabilitarSugerencia() {
+		boolean Rpta;
+		Rpta = false;
+		Rpta = sugerenciaRepository.deshabilitarSugerencia(1);
+		assertEquals(true,Rpta);
+	}
+}
