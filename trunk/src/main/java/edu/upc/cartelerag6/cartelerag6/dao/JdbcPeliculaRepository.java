@@ -19,8 +19,7 @@ public class JdbcPeliculaRepository implements PeliculaRepository{
 	
 
 	public Pelicula MostrarDetallePeliculaActiva(Integer idPelicula) {
-		String sql = "select login, " +
-		"password, estado, nombre, apellido, puesto, fec_Creacion, fec_Caducidad, telefono, email, dni, tipo " +
+		String sql = "select idPelicula, nomPelicula,anioProduccion, duracion, paisOrigen,genero, tipoEmision, flagSubtitulo, flagComentario, publicoObjetivo, sinopsis, fecIniCartelera, fecFinCartelera, estado, poster, trailer " +
 		"from T_PELICULA " +
 		"where idPelicula = ? "; 
 		 
@@ -34,6 +33,49 @@ public class JdbcPeliculaRepository implements PeliculaRepository{
 			ps.setInt(1, idPelicula);
 			rs = ps.executeQuery();
 			pelicula = mapPelicula(rs, idPelicula);
+		} catch (SQLException e) {
+			throw new RuntimeException("SQL exception occurred encontrando la película", e);
+		} finally {
+			if (rs != null) {
+				try {
+					// Close to prevent database cursor exhaustion
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			}
+			if (ps != null) {
+				try {
+					// Close to prevent database cursor exhaustion
+					ps.close();
+				} catch (SQLException ex) {
+				}
+			}
+			if (conn != null) {
+				try {
+					// Close to prevent database connection exhaustion
+					conn.close();
+				} catch (SQLException ex) {
+				}
+			}
+		}
+		return pelicula;
+	}
+
+	public Pelicula MostrarDetallePeliculaInactiva(Integer idPelicula) {
+		String sql = "select idPelicula, nomPelicula,fecIniCartelera, fecFinCartelera, estado, poster" +
+		"from T_PELICULA " +
+		"where idPelicula = ? "; 
+		 
+		Pelicula pelicula = null;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, idPelicula);
+			rs = ps.executeQuery();
+			pelicula = mapPeliculaInactiva(rs, idPelicula);
 		} catch (SQLException e) {
 			throw new RuntimeException("SQL exception occurred encontrando la película", e);
 		} finally {
@@ -94,14 +136,23 @@ public class JdbcPeliculaRepository implements PeliculaRepository{
 		return pelicula;
 	}
 
-
-	public Pelicula MostrarDetallePeliculaInactiva(Integer idPelicula) {
-		// TODO Auto-generated method stub
-		return null;
+	private Pelicula mapPeliculaInactiva(ResultSet rs, int idPelicula) throws SQLException {
+		Pelicula pelicula = null;
+		while (rs.next()) {
+			if (pelicula == null) {
+				
+				String nomPelicula = rs.getString("nomPelicula");
+				Date fecIniCartelera = rs.getDate("fecIniCartelera");
+				Date fecFinCartelera = rs.getDate("fecFinCartelera");
+				String estado = rs.getString("estado");
+				String poster = rs.getString("poster");
+				pelicula = new Pelicula(idPelicula, nomPelicula, fecIniCartelera, fecFinCartelera, estado, poster);
+			}
+		}
+		if (pelicula == null) {
+			// no rows returned - throw an empty result exception
+			//throw new EmptyResultDataAccessException(1);
+		}
+		return pelicula;
 	}
-
-	
-	
-	
-
 }
