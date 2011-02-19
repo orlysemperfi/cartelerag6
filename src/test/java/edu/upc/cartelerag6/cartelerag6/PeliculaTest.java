@@ -29,7 +29,7 @@ public class PeliculaTest {
 		p1 = peliculaRepository.MostrarDetallePeliculaActiva(1);
 		assertNotNull(p1.getIdPelicula());
 		assertEquals(1, p1.getIdPelicula());
-		assertEquals("A", p1.getEstado());
+		assertEquals("Activo", p1.getEstado());
 	}
 	
 	@Test
@@ -38,6 +38,6 @@ public class PeliculaTest {
 		p1 = peliculaRepository.MostrarDetallePeliculaActiva(2);
 		assertNotNull(p1.getIdPelicula());
 		assertEquals(2, p1.getIdPelicula());
-		assertEquals("I", p1.getEstado());
+		assertEquals("Inactivo", p1.getEstado());
 	}
 }
