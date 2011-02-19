@@ -8,11 +8,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.sql.DataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import edu.upc.cartelerag6.cartelerag6.model.Comentario;
 import edu.upc.cartelerag6.cartelerag6.repository.ComentarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class JdbcComentarioRepository implements ComentarioRepository {
 	@Autowired
 	private DataSource dataSource;
@@ -20,7 +22,7 @@ public class JdbcComentarioRepository implements ComentarioRepository {
 	public Comentario registrarComentario(Integer idComentario, Integer idPelicula, String comentario, String estado, String fechaCreacion) {
 		Comentario c = null;
 		String sql = "insert into T_COMENTARIO(idPelicula," +
-		"comentario, estado, fechaRegistro) values (?, ?, ?, ?, ?)";
+		"comentario, estado, fechaRegistro) values (?, ?, ?, ?)";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
@@ -35,7 +37,7 @@ public class JdbcComentarioRepository implements ComentarioRepository {
 			c = new Comentario (1, idPelicula, comentario, estado, fechaCreacion);
 			return c;
 		} catch (SQLException e) {
-			throw new RuntimeException("SQL exception occured insertando a un usuario", e);
+			throw new RuntimeException("Error al insertar un nuevo comentario", e);
 		} finally {
 			if (ps != null) {
 				try {
