@@ -1,3 +1,4 @@
+
 package edu.upc.cartelerag6.cartelerag6.model;
 
 
@@ -5,7 +6,6 @@ package edu.upc.cartelerag6.cartelerag6.model;
 public class Sugerencia {
 	
 	private Integer idSugerencia;
-	
 	private String descripcion;
 	private String estado; //Habilitado - Deshabilitado
 	private String fecha_registro;
@@ -14,6 +14,15 @@ public class Sugerencia {
 	
 	
 	
+	public Sugerencia(Integer idSugerencia, String descripcion, String estado,
+			String fecha_registro, String fecha_atencion, String flag_atencion) {
+		this.idSugerencia = idSugerencia;
+		this.descripcion = descripcion;
+		this.estado = estado;
+		this.fecha_registro = fecha_registro;
+		this.fecha_atencion = fecha_atencion;
+		this.flag_atencion = flag_atencion;
+	}
 	public Integer getIdSugerencia() {
 		return idSugerencia;
 	}
