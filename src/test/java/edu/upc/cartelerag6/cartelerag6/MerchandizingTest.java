@@ -1,26 +1,32 @@
 package edu.upc.cartelerag6.cartelerag6;
-/*
+
+import java.util.ArrayList;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.context.annotation.Configuration;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import edu.upc.cartelerag6.cartelerag6.model.Producto;
 import edu.upc.cartelerag6.cartelerag6.repository.MerchandizingRepository;
-import edu.upc.cartelerag6.cartelerag6.repository.SolicitudRepository;
-import edu.upc.cartelerag6.cartelerag6.model.Solicitud;
+import static org.junit.Assert.*;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(
+		locations={
+				"classpath:test-infrastructure-config.xml",
+				"classpath:application-config.xml"})
 public class MerchandizingTest {
-	MerchandizingRepository merchandizingRepository
-	= new MerchandizingRepository();
+	
+	@Autowired
+	private MerchandizingRepository merchandizingRepository;
 
+	
 	@Test
-	public void VisualizarMerchandizing(){
-		MerchandizingRepository.mostrarProductosPelicula(25);
-	}
-
-	@Test
-	public void AgregarSolicitud(){
-		Solicitud solicitud = new Solicitud (1,1,null,null,"","");
-		SolicitudRepository.AgregarSolicitud(solicitud);		
-		assertTrue(solicitud.getIdSolicitud()!=null);
+	public void testMostrarProductosPelicula() {
+		ArrayList<Producto>  p1;
+		p1 = merchandizingRepository.mostrarProductosPelicula(1);
+		assertNotNull(p1);
+		assertEquals(true, p1.size() > 0);
 	}
 }
-*/
