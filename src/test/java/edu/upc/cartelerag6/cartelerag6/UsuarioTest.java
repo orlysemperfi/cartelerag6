@@ -7,17 +7,12 @@ import java.sql.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import stub.StubUsuarioRepository;
 
 import edu.upc.cartelerag6.cartelerag6.model.Usuario;
-//import edu.upc.cartelerag6.cartelerag6.repository.SugerenciaRepository;
 import edu.upc.cartelerag6.cartelerag6.repository.UsuarioRepository;
-//import edu.upc.cartelerag6.cartelerag6.stub.StubSugerenciaRepository;
-//import edu.upc.cartelerag6.cartelerag6.stub.StubUsuarioRepository;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
