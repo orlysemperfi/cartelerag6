@@ -2,8 +2,6 @@ package edu.upc.cartelerag6.cartelerag6.model;
 
 import java.util.Date;
 
-import java.util.Date;
-
 public class Pelicula {
 	private int idPelicula;
 	private String nomPelicula;
@@ -142,6 +140,17 @@ public class Pelicula {
 		this.trailer = trailer;
 	}
 	
+	public Pelicula(int idPelicula, String nomPelicula,
+			java.sql.Date fecIniCartelera, java.sql.Date fecFinCartelera, String estado,
+			String poster) {
+		//super();
+		this.idPelicula = idPelicula;
+		this.nomPelicula = nomPelicula;
+		this.fecIniCartelera = fecIniCartelera;
+		this.fecFinCartelera = fecFinCartelera;
+		this.estado = estado;
+		this.poster = poster;
+	}
 	
 	
 	
