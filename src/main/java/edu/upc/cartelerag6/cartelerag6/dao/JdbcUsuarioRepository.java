@@ -87,7 +87,7 @@ public class JdbcUsuarioRepository implements UsuarioRepository{
 		return validacion;
 	}
 	
-	public Usuario registrarUsuario(Integer idUsuario, String login,
+	public Usuario registrarUsuario(String idUsuario, String login,
 			String password, String estado, String nombre, String apellido,
 			String puesto, Date fec_Creacion,
 			Date fec_Caducidad, String telefono, String email,
