@@ -25,18 +25,17 @@ import static org.junit.Assert.*;
 				"classpath:application-config.xml"})
 public class UsuarioTest {
 	
-	//@Autowired
-	private Usuario usuario;
+	@Autowired
+	private UsuarioRepository usuario;
 
 	
 	@Test
 	public void testUsuario() {
-		UsuarioRepository usuario = new StubUsuarioRepository();
+		//UsuarioRepository usuario = UsuarioRepository;
 		
-		//assertNotNull(usuario.encontrarUsuario(1));
-		//assertNull(usuario.encontrarUsuario(1));
+		assertNotNull(usuario.encontrarUsuario(1));
 		/*
-		assertEquals("false", usuario.validacionUsuario("dbecerradi"));
+		assertEquals("false", usuario.validacionUsuario( "dbecerradi"));
 		assertNotNull(usuario.registrarUsuario("grocachung","guiuliana","activo","guiuliana","roca","02/02/2012","Tgestiona","analista","telefono","groca@tp.com","3454555555"));
 		assertNotNull(usuario.encontrarUsuario("dbecerradi"));
 		assertEquals("true", usuario.longUsuario("dbecerradi"));
