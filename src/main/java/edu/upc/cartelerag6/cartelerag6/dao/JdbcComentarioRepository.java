@@ -19,20 +19,20 @@ public class JdbcComentarioRepository implements ComentarioRepository {
 
 	public Comentario registrarComentario(Integer idComentario, Integer idPelicula, String comentario, String estado, String fechaCreacion) {
 		Comentario c = null;
-		String sql = "insert into T_COMENTARIO(idComentario, idPelicula," +
+		String sql = "insert into T_COMENTARIO(idPelicula," +
 		"comentario, estado, fechaRegistro) values (?, ?, ?, ?, ?)";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
 			conn = dataSource.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, idComentario);
-			ps.setInt(2, 1);
-			ps.setString(3, comentario);
-			ps.setString(4, estado);
-			ps.setString(5, fechaCreacion);
+
+			ps.setInt(1, 1);
+			ps.setString(2, comentario);
+			ps.setString(3, estado);
+			ps.setString(4, fechaCreacion);
 			ps.execute();
-			c = new Comentario (idComentario, idPelicula, comentario, estado, fechaCreacion);
+			c = new Comentario (1, idPelicula, comentario, estado, fechaCreacion);
 			return c;
 		} catch (SQLException e) {
 			throw new RuntimeException("SQL exception occured insertando a un usuario", e);
