@@ -1,13 +1,31 @@
 package edu.upc.cartelerag6.cartelerag6;
-/*
+
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import org.junit.Test;
 import edu.upc.cartelerag6.cartelerag6.repository.ComentarioRepository;
-import edu.upc.cartelerag6.cartelerag6.repository.ComentarioRepositoryImpl;
 import static org.junit.Assert.*;
 
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(
+		locations={
+				"classpath:test-infrastructure-config.xml",
+				"classpath:application-config.xml"})
 public class ComentarioTest {
-	ComentarioRepository comentarioRepository = new ComentarioRepositoryImpl();
+
+	@Autowired
+	private ComentarioRepository comentario;
+	
+	@Test
+	public void registrarUnComentario() {
+		comentario.registrarComentario(1, 1, "Test de comentario", "Pendiente", "01/01/2011");
+		assertEquals(1, comentario.listarComentarios().size());
+	}
+	
+/*
 	
 	@Test
 	public void ComentarioSinRegistros() {
@@ -54,5 +72,7 @@ public class ComentarioTest {
 		comentarioRepository.actualizarEstado(3, "Rechazado");
 		assertEquals("Rechazado", comentarioRepository.listarComentario(3).getEstado());
 	}
+	*/
 }
-*/
+
+
