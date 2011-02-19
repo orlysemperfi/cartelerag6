@@ -12,3 +12,10 @@ values ('La vida es sueño', '2011','50 min', 'Chile', 'Drama','Sala','S', 1, 'Ap
 
 insert into T_PELICULA(nomPelicula,anioProduccion, duracion, paisOrigen,genero, tipoEmision, flagSubtitulo,flagComentario, publicoObjetivo, sinopsis,fecIniCartelera, fecFinCartelera, estado,poster, trailer)
 values ('ContraCara', '2007','50 min', 'EEUU', 'Acción','Sala','S', 1, 'Apta para todos', 'Sinopsis','2011-01-01', '2011-01-01', 'Inactivo', 'ruta poster', 'ruta trailer');		
+
+insert into T_PRODUCTO (nomProducto,descProducto,precioProducto,stockProducto,caracteristicasProducto,rutaImagenProducto,estadoProducto)
+values ('Cajita Feliz', 'Cajita Feliz para niños', 20,50,'Edición limitada', 'ruta imagen', 'A');
+
+insert into T_MERCHANDIZING (idPelicula,idProducto,fecInicioVigencia,fecFinVigencia,estadoMerchandizing)
+values (1, 1, '2011-01-01','2012-01-01', 'A');
+
