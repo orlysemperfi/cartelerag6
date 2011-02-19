@@ -2,6 +2,8 @@ package edu.upc.cartelerag6.cartelerag6;
 
 
 
+import java.sql.Date;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,7 @@ public class UsuarioTest {
 
 	
 	@Test
-	public void testUsuario() {
+	public void testEncontrarUsuario() {
 		//UsuarioRepository usuario = UsuarioRepository;
 		
 		assertNotNull(usuario.encontrarUsuario(1));
@@ -44,5 +46,10 @@ public class UsuarioTest {
 		*/
 	}
 
+	@Test
+	public void testRegistrarUsuario() {
+		Usuario u1 = usuario.registrarUsuario("0", "10101010", "10101010", "A", "Julio", "Vargas", "Analista", Date.valueOf("2020-01-01"), Date.valueOf("2020-01-01"), "353453", "mail", "10101010", "I");
+		assertNotNull(u1);
+	}
 	
 }
