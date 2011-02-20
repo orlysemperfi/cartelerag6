@@ -9,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
-import edu.upc.cartelerag6.cartelerag6.model.Comentario;
 import edu.upc.cartelerag6.cartelerag6.repository.ComentarioRepository;
 import static org.junit.Assert.*;
 
@@ -24,59 +23,40 @@ public class ComentarioTest {
 	private ComentarioRepository comentario;
 	
 	@Test
+	public void sinComentarios(){
+		assertEquals(0, comentario.listarComentarios(1, "Pendiente").size());
+	}
+	
+	@Test
 	public void registrarUnComentario() {
 		comentario.registrarComentario(1, 1, "Test de comentario", "Pendiente", "01/01/2011");
-		//assertEquals(1, comentario.listarComentarios().size());
-	}
-	
-/*
-	
-	@Test
-	public void ComentarioSinRegistros() {
-		assertEquals(0, comentarioRepository.listarComentarios().size());
-	}
-
-	@Test
-	public void ComentarioConUnRegistro() {
-		comentarioRepository.registrarComentario( 1, "Test de comentario");
-		assertEquals(1, comentarioRepository.listarComentarios().size());
+		assertEquals(1, comentario.listarComentarios(1, "Pendiente").size());
 	}
 	
 	@Test
-	public void ComentarioConVariosRegistros() {
-		comentarioRepository.registrarComentario(1, "Test de comentario");
-		comentarioRepository.registrarComentario(2, "Test de comentario 2");
-		comentarioRepository.registrarComentario(3, "Test de comentario 3");
-		comentarioRepository.registrarComentario(4, "Test de comentario 4");
-		assertEquals(4, comentarioRepository.listarComentarios().size());
-		try {
-			comentarioRepository.registrarComentario(2, "Test de comentario 2");	
-		}
-		catch(Exception ex){
-			assertEquals("Comentario ya registrado", ex.getMessage());
-		}
+	public void registrarVariosComentarios() {
+		comentario.registrarComentario(1, 1, "Excelente pelicula.", "Pendiente", "01/01/2011");
+		comentario.registrarComentario(2, 1, "Poco realismo, mucha ficción.", "Pendiente", "01/01/2011");
+		comentario.registrarComentario(3, 1, "Buena, se las recomiendo.", "Pendiente", "01/01/2011");
+		comentario.registrarComentario(4, 1, "Pobre, no me gusto!!!!", "Pendiente", "01/01/2011");
+		comentario.registrarComentario(5, 1, "la mejor pelicula de la temporada.", "Pendiente", "01/01/2011");
+		assertEquals(6, comentario.listarComentarios(1, "Pendiente").size());
 	}
 	
 	@Test
-	public void EliminarComentario() {
-		comentarioRepository.registrarComentario(1, "Test de comentario");
-		comentarioRepository.registrarComentario(2, "Test de comentario 2");
-		comentarioRepository.registrarComentario(3, "Test de comentario 3");
-		comentarioRepository.registrarComentario(4, "Test de comentario 4");
-		
-		comentarioRepository.eliminarComentario(2);
-		assertEquals(3, comentarioRepository.listarComentarios().size());
+	public void actualizarComentario() {
+		comentario.registrarComentario(1, 1, "Test de comentario", "Pendiente", "01/01/2011");
+		comentario.actualizarEstado(1, 1, "Rechazado");
+		assertEquals("Rechazado", comentario.listarComentario(1, 1).getEstado());
+		assertEquals("la mejor pelicula de la temporada.", comentario.listarComentario(6, 1).getComentario());
 	}
 	
 	@Test
-	public void ActualizarEstado() {
-		comentarioRepository.registrarComentario(1, "Test de comentario");
-		comentarioRepository.registrarComentario(2, "Test de comentario 2");
-		comentarioRepository.registrarComentario(3, "Test de comentario 3");
-		comentarioRepository.actualizarEstado(3, "Rechazado");
-		assertEquals("Rechazado", comentarioRepository.listarComentario(3).getEstado());
+	public void eliminarComentario() {
+		assertTrue(comentario.eliminarComentario(1, 1));
+		assertNull(comentario.listarComentario(1, 1));
 	}
-	*/
+	
 }
 
 
