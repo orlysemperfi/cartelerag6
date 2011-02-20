@@ -5,8 +5,8 @@ import edu.upc.cartelerag6.cartelerag6.model.Comentario;
 
 public interface ComentarioRepository {
 	public Comentario registrarComentario(Integer idComentario, Integer idPelicula, String txComentario, String estado, String fechaCreacion);
-	public void actualizarEstado(Integer idComentario, String estado);
-	public ArrayList<Comentario> listarComentarios();
-	public Comentario listarComentario(Integer idComentario);
-	public void eliminarComentario(Integer idComentario);	
+	public Boolean actualizarEstado(Integer idComentario, Integer idPelicula, String estado);
+	public ArrayList<Comentario> listarComentarios(Integer idPelicula, String estado);
+	public Comentario listarComentario(Integer idComentario, Integer idPelicula);
+	public Boolean eliminarComentario(Integer idComentario, Integer idPelicula);	
 }
