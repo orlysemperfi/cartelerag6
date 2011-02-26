@@ -1,59 +1,63 @@
 package edu.upc.cartelerag6.cartelerag6;
-/*
-import org.junit.Test;
 
+import java.sql.Date;
+
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import edu.upc.cartelerag6.cartelerag6.model.Perfil;
+import edu.upc.cartelerag6.cartelerag6.model.Usuario;
 import edu.upc.cartelerag6.cartelerag6.repository.PerfilRepository;
-import edu.upc.cartelerag6.cartelerag6.repository.PerfilRepositoryImpl;
+import edu.upc.cartelerag6.cartelerag6.repository.UsuarioRepository;
 import static org.junit.Assert.*;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(
+		locations={
+				"classpath:test-infrastructure-config.xml",
+				"classpath:application-config.xml"})
+
 public class PerfilTest {
-	PerfilRepository perfilRepository = new PerfilRepositoryImpl();
-	
-	@Test
-	public void PerfilSinRegistros() {
-		assertEquals(0, perfilRepository.listarPerfiles().size());
-	}
 
+	@Autowired
+	private PerfilRepository perfil;
+	
 	@Test
-	public void PerfilConUnRegistro() {
-		perfilRepository.registrarPerfil(1, "Perfil Administrador 1", 1);
-		assertEquals(1, perfilRepository.listarPerfiles().size());
+	public void testRegistrarPerfil() {
+		Perfil p1 = perfil.registrarPerfil("1","Administrador", "A");
+		assertNotNull(p1);
 	}
 	
 	@Test
-	public void PerfilConVariosRegistros() {
-		perfilRepository.registrarPerfil(1, "Perfil Administrador 1", 1);
-		perfilRepository.registrarPerfil(2, "Perfil Administrador 2", 1);
-		perfilRepository.registrarPerfil(3, "Perfil Administrador 3", 1);
-		perfilRepository.registrarPerfil(4, "Perfil Administrador 4", 1);
-		assertEquals(4, perfilRepository.listarPerfiles().size());
-		try {
-			perfilRepository.registrarPerfil(2, "Perfil Administrador 2", 1);	
-		}
-		catch(Exception ex){
-			assertEquals("Perfil ya registrado", ex.getMessage());
-		}
+	public void testInactivarPerfil() {
+		boolean inactivar = perfil.inactivarPerfil(1);
+		assertTrue(inactivar);
 	}
 	
 	@Test
-	public void EliminarComentario() {
-		perfilRepository.registrarPerfil(1, "Perfil Administrador 1", 1);
-		perfilRepository.registrarPerfil(2, "Perfil Administrador 2", 1);
-		perfilRepository.registrarPerfil(3, "Perfil Administrador 3", 1);
-		perfilRepository.registrarPerfil(4, "Perfil Administrador 4", 1);
-		
-		perfilRepository.eliminarPerfil(2);
-		assertEquals(3, perfilRepository.listarPerfiles().size());
+	public void testObtenerPerfil() {
+		Perfil p1 = perfil.obtenerPerfil(1);
+		assertNotNull(p1);
 	}
 	
 	@Test
-	public void ActualizarEstado() {
-		perfilRepository.registrarPerfil(1, "Perfil Administrador 1", 1);
-		perfilRepository.registrarPerfil(2, "Perfil Administrador 2", 1);
-		perfilRepository.registrarPerfil(3, "Perfil Administrador 3", 1);
-		perfilRepository.actualizarEstado(3, 0);
-		assertEquals(Integer.valueOf(0), perfilRepository.listarPerfil(3).getEstado());
+	public void testAsignarPerfil_Usuario() {
+		boolean asignarPerfil = perfil.asignarPerfil_Usuario(1,1);
+		assertTrue(asignarPerfil);
 	}
-
+	
+	@Test
+	public void testInactivarPerfil_Usuario() {
+		boolean inactivaPerfil_Usuario = perfil.inactivarPerfil_Usuario(1, 1);
+		assertTrue(inactivaPerfil_Usuario);
+	}
+	
+	
 }
-*/
