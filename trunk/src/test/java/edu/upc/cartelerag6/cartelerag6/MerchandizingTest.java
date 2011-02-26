@@ -49,14 +49,14 @@ public class MerchandizingTest {
 		return s1;
 	}
 	
-	@Test
+	//@Test
 	public void testLlenarCarrito() {
 		Solicitud s1 = cargaSolicitud();
 		assertEquals(true, s1.getDetalle().size() >= 2);
 		assertEquals(1, s1.getDetalle().get(0).getIdProducto().intValue());
 	}
 
-	@Test
+	//@Test
 	public void testObtenerProducto() {
 		Producto p1;
 		p1 = productoRepository.obtenerProducto(1);
@@ -64,7 +64,7 @@ public class MerchandizingTest {
 		assertEquals(1, p1.getIdProducto().intValue());
 	}	
 
-	@Test
+	//@Test
 	public void testObTenerTotalSolicitud() {
 		Solicitud s1 = cargaSolicitud();
 		Double dblTotal;
@@ -72,5 +72,15 @@ public class MerchandizingTest {
 		if (s1 != null) {System.out.println("valor= " + dblTotal.toString());}
 		assertNotNull(s1);
 		assertEquals( "180.0", dblTotal.toString());
-	}	
+	}
+
+	@Test
+	public void testRealizarVenta() {
+		Solicitud s1 = cargaSolicitud();
+		Boolean blnRpta;
+		blnRpta = merchandizingRepository.realizarVenta(s1);
+		assertEquals( true, blnRpta);
+	}
+	
+	
 }
