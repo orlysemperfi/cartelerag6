@@ -146,7 +146,7 @@ public class JdbcUsuarioRepository implements UsuarioRepository{
 		try {
 			conn = dataSource.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, "bloqueado");
+			ps.setString(1, "B");
 			ps.setInt(2, idUsuario);
 			ps.executeUpdate();
 			fbloqueo = true;
