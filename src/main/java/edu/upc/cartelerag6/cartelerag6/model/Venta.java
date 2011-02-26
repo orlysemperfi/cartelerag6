@@ -9,6 +9,23 @@ public class Venta {
 	private Double importeImpuesto;
 	private Double importeTotal;
 	private String tipoPago;
+
+	
+	public Venta(Integer idVenta, Date fecha, String tipoPago) {
+		this.idVenta = idVenta;
+		this.fecha = fecha;
+		this.tipoPago = tipoPago;
+	}
+	
+	public Venta(Integer idVenta, Date fecha, Double importeImpuesto,
+			Double importeTotal, String tipoPago) {
+		this.idVenta = idVenta;
+		this.fecha = fecha;
+		this.importeImpuesto = importeImpuesto;
+		this.importeTotal = importeTotal;
+		this.tipoPago = tipoPago;
+	}
+	
 	public Integer getIdVenta() {
 		return idVenta;
 	}
