@@ -31,20 +31,24 @@ public class UsuarioTest {
 		//UsuarioRepository usuario = UsuarioRepository;
 		
 		assertNotNull(usuario.encontrarUsuario(1));
-		/*
-		assertEquals("false", usuario.validacionUsuario( "dbecerradi"));
-		assertNotNull(usuario.registrarUsuario("grocachung","guiuliana","activo","guiuliana","roca","02/02/2012","Tgestiona","analista","telefono","groca@tp.com","3454555555"));
-		assertNotNull(usuario.encontrarUsuario("dbecerradi"));
-		assertEquals("true", usuario.longUsuario("dbecerradi"));
-		assertEquals("true", usuario.asignacionContraseña("dbecerradi"));
-		assertEquals("true", usuario.bloqueoUsuario("dbecerradi"));
-		*/
 	}
 
 	@Test
 	public void testRegistrarUsuario() {
 		Usuario u1 = usuario.registrarUsuario("0", "10101010", "10101010", "A", "Julio", "Vargas", "Analista", Date.valueOf("2020-01-01"), Date.valueOf("2020-01-01"), "353453", "mail", "10101010", "I");
 		assertNotNull(u1);
+	}
+	
+	@Test
+	public void testBloquearUsuario() {
+		boolean bloqueo = usuario.bloqueoUsuario(1);
+		assertTrue(bloqueo);
+	}
+	
+	@Test
+	public void testAsignacionContraseña() {
+		boolean asignacion = usuario.asignacionContraseña(1, "password");
+		assertTrue(asignacion);
 	}
 	
 }
