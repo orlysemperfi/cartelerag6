@@ -17,17 +17,18 @@ public class JdbcPerfilReporsitory implements PerfilRepository{
 	@Autowired
 	private DataSource dataSource;
 
-	public Perfil registrarPerfil(Integer idPerfil, String nomPerfil,
+	public Perfil registrarPerfil(String idPerfil, String nomPerfil,
 			String estado) {
 		Perfil perfil = null;
-		String sql = "insert into T_PERFIL(nomPerfil, estado values (?, ?)";
+		String sql = "insert into T_PERFIL (idPerfil, nomPerfil, estado) values (?, ?, ?)";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
 			conn = dataSource.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setString(1,nomPerfil);
-			ps.setString(2, estado);
+			ps.setString(1,idPerfil);
+			ps.setString(2,nomPerfil);
+			ps.setString(3, estado);
 			
 			ps.execute();
 			perfil = new Perfil (nomPerfil,estado);
@@ -60,7 +61,7 @@ public class JdbcPerfilReporsitory implements PerfilRepository{
 		try {
 			conn = dataSource.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, "inactivo");
+			ps.setString(1, "I");
 			ps.setInt(2, idPerfil);
 			ps.executeUpdate();
 			finactivo = true;
@@ -157,7 +158,7 @@ public class JdbcPerfilReporsitory implements PerfilRepository{
 
 	public boolean asignarPerfil_Usuario(Integer idPerfil, Integer idUsuario) {
 		boolean fasignacion = false;
-		String sql = "insert into T_PERFIL_USUARIO(idPerfil, idUsuario, estado values (?, ?, ?)";
+		String sql = "insert into T_PERFIL_USUARIO(idPerfil, idUsuario, estado) values (?, ?, ?)";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
@@ -165,7 +166,7 @@ public class JdbcPerfilReporsitory implements PerfilRepository{
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1,idPerfil);
 			ps.setInt(2, idUsuario);
-			ps.setString(3, "activo");
+			ps.setString(3, "A");
 			
 			ps.execute();
 			fasignacion = true;
@@ -200,9 +201,9 @@ public class JdbcPerfilReporsitory implements PerfilRepository{
 		try {
 			conn = dataSource.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, "inactivo");
+			ps.setString(1, "I");
 			ps.setInt(2, idPerfil);
-			ps.setInt(2, idUsuario);
+			ps.setInt(3, idUsuario);
 			ps.executeUpdate();
 			finactivo = true;
 		} catch (SQLException e) {
