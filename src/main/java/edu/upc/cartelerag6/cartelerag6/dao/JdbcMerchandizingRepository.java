@@ -130,11 +130,48 @@ public class JdbcMerchandizingRepository implements MerchandizingRepository{
 		return dblTotal;
 	}
 
+
+	private Boolean actualizaStock(Integer idProducto, Integer intSctock){
+		String sql = "update T_PRODUCTO SET stockProducto = ? where idProducto = ? ";
+		Connection conn = null;
+		PreparedStatement ps = null;
+		boolean fbloqueo = false;
+		try {
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, intSctock);
+			ps.setInt(2, idProducto);
+			ps.executeUpdate();
+			fbloqueo = true;
+		} catch (SQLException e) {
+			throw new RuntimeException("SQL exception occurred actualizando stock del producto", e);
+		} finally {
+			if (ps != null) {
+				try {
+					// Close to prevent database cursor exhaustion
+					
+					ps.close();
+				} catch (SQLException ex) {
+				}
+			}
+			if (conn != null) {
+				try {
+					// Close to prevent database connection exhaustion
+					conn.close();
+				} catch (SQLException ex) {
+				}
+			}
+		}
+		return fbloqueo;
+	}
+
 	private Boolean registrarDetalle(Integer idVenta ,Detalle_Venta detalle)
 	{
+		Producto p1 = null;
 		boolean fvalid = false;
 		Integer intIdHorario = 0;
 		Integer intIdProducto = 0;
+		Integer intNuevoStock;
  		String sql = "insert into T_DETALLE_VENTA(idVenta, idProducto, idHorario, cantProducto, importe) " +
 		" values (?, ?, ?, ?, ?) ";
 		Connection conn = null;
@@ -158,7 +195,10 @@ public class JdbcMerchandizingRepository implements MerchandizingRepository{
 			ps.setDouble(5, detalle.getImporte());
 			
 			ps.execute();
-			fvalid = true;
+			p1 = productoRepository.obtenerProducto(intIdProducto);
+			intNuevoStock = p1.getStockProducto() - detalle.getCantProducto();
+			fvalid = actualizaStock(intIdProducto,intNuevoStock);
+			//fvalid = true;
 						
 		} catch (SQLException e) {
 			throw new RuntimeException("SQL exception occured insertando sugerencia", e);
