@@ -66,4 +66,15 @@ public class StubSugerenciaRepository implements SugerenciaRepository{
 		return null;
 	}
 
+	public boolean deshabilitarSugerencia(Integer idSugerencia) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Sugerencia registrarSugerencia(String descripcion, String estado,
+			String fecha_registro, String fecha_atencion, String flag_atencion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
