@@ -2,7 +2,7 @@ insert into T_USUARIO (login ,password, estado, nombre, apellido, puesto, fec_Cr
 values ('40404040', '40404040','A','Keith','Donald', 'Administrador','01/01/2011', '01/01/2020','987668789','donalk@mail.com','40404040', 'I' ); -- usuario interno
 
 insert into T_USUARIO (login ,password, estado, nombre, apellido, puesto, fec_Creacion, fec_Caducidad, telefono, email, dni, tipo) 
-values ('50505050', '50505050','A','Felix','Car', null,'01/01/2011', '01/01/2020','948787574','carf@mail.com','50505050', 'C' ); -- usuario  externo - cliente
+values ('50505050', '50505050','A','Felix','Car', null,'01/01/2011', '01/01/2020','948787574','carf@mail.com','50505050', 'C' ); 
 
 insert into T_SUGERENCIA (descripcion,estado,fecha_registro,fecha_atencion,flag_atencion)
 values ('Sugerencia inicial','Habilitado','01/01/2011','01/01/2011','Atendido');
