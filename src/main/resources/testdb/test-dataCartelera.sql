@@ -16,6 +16,9 @@ values ('ContraCara', '2007','50 min', 'EEUU', 'Acción','Sala','S', 1, 'Apta par
 insert into T_PRODUCTO (nomProducto,descProducto,precioProducto,stockProducto,caracteristicasProducto,rutaImagenProducto,estadoProducto)
 values ('Cajita Feliz', 'Cajita Feliz para niños', 20,50,'Edición limitada', 'ruta imagen', 'A');
 
+insert into T_PRODUCTO (nomProducto,descProducto,precioProducto,stockProducto,caracteristicasProducto,rutaImagenProducto,estadoProducto)
+values ('Polo ', 'Polo para niños', 20,50,'Edición limitada', 'ruta imagen', 'A');
+
 insert into T_MERCHANDIZING (idPelicula,idProducto,fecInicioVigencia,fecFinVigencia,estadoMerchandizing)
 values (1, 1, '2011-01-01','2012-01-01', 'A');
 
