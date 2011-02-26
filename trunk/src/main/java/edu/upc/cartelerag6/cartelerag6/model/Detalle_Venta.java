@@ -10,6 +10,18 @@ public class Detalle_Venta {
 	private Integer idHorario;
 	private Integer cantProducto;
 	private Double importe;
+	
+	
+	public Detalle_Venta(Integer idVenta, Integer item, Integer idProducto,
+			Integer idHorario, Integer cantProducto, Double importe) {
+		super();
+		IdVenta = idVenta;
+		this.item = item;
+		this.idProducto = idProducto;
+		this.idHorario = idHorario;
+		this.cantProducto = cantProducto;
+		this.importe = importe;
+	}
 	public Integer getIdVenta() {
 		return IdVenta;
 	}
