@@ -2,6 +2,7 @@ package edu.upc.cartelerag6.cartelerag6.dao;
 
 import java.util.ArrayList;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +11,6 @@ import javax.sql.DataSource;
 import edu.upc.cartelerag6.cartelerag6.model.Detalle_Venta;
 import edu.upc.cartelerag6.cartelerag6.model.Producto;
 import edu.upc.cartelerag6.cartelerag6.model.Solicitud;
-import edu.upc.cartelerag6.cartelerag6.model.Sugerencia;
 import edu.upc.cartelerag6.cartelerag6.model.Venta;
 import edu.upc.cartelerag6.cartelerag6.repository.ProductoRepository;
 import edu.upc.cartelerag6.cartelerag6.repository.MerchandizingRepository;
@@ -130,26 +130,87 @@ public class JdbcMerchandizingRepository implements MerchandizingRepository{
 		return dblTotal;
 	}
 
-
- 	public Boolean realizarVenta(Solicitud solicitud) {
- 		Sugerencia s1 = null;
- 		Integer idSugerencia;
- 		idSugerencia =0;
-		String sql = "insert into T_SUGERENCIA(descripcion, estado, fecha_registro, fecha_atencion, flag_atencion)" +
-		" values (?, ?, ?, ?, ?)";
+	private Boolean registrarDetalle(Integer idVenta ,Detalle_Venta detalle)
+	{
+		boolean fvalid = false;
+		Integer intIdHorario = 0;
+		Integer intIdProducto = 0;
+ 		String sql = "insert into T_DETALLE_VENTA(idVenta, idProducto, idHorario, cantProducto, importe) " +
+		" values (?, ?, ?, ?, ?) ";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
 			conn = dataSource.getConnection();
-			ps = conn.prepareStatement(sql);/*
-			ps.setString(1,descripcion);
-			ps.setString(2, estado);
-			ps.setString(3, fecha_registro);
-			ps.setString(4, fecha_atencion);
-			ps.setString(5, flag_atencion);*/
+			ps = conn.prepareStatement(sql);
+			if (detalle.getIdProducto() != null)
+			{
+				intIdProducto = detalle.getIdProducto();
+			} 
+			if (detalle.getIdHorario() != null)
+			{
+				intIdHorario = detalle.getIdHorario();
+			} 
+			
+			ps.setInt(1,idVenta);
+			ps.setInt(2, intIdProducto);
+			ps.setInt(3,intIdHorario );
+			ps.setInt(4, detalle.getCantProducto());
+			ps.setDouble(5, detalle.getImporte());
+			
 			ps.execute();
-			//s1 = new Sugerencia (idSugerencia, descripcion, estado,fecha_registro, fecha_atencion, flag_atencion);
-			return false;
+			fvalid = true;
+						
+		} catch (SQLException e) {
+			throw new RuntimeException("SQL exception occured insertando sugerencia", e);
+		} finally {
+			if (ps != null) {
+				try {
+					// Close to prevent database cursor exhaustion
+					ps.close();
+				} catch (SQLException ex) {
+				}
+			}
+			if (conn != null) {
+				try {
+					// Close to prevent database connection exhaustion
+					conn.close();
+				} catch (SQLException ex) {
+				}
+			}
+		}
+		return fvalid;
+	}
+	
+ 	public Boolean realizarVenta(Solicitud solicitud) {
+ 		Date fecha;
+ 		Double dblImpuesto;
+ 		Double dblImporteTotal;
+ 		Integer idVenta = 1;
+ 		boolean fvalid = false;
+ 		String strFecha;
+		String sql = "insert into T_VENTA(fecha, importeImpuesto, importeTotal, tipoPago) " +
+		" values (?, ?, ?, ?)";
+		Connection conn = null;
+		PreparedStatement ps = null;
+		strFecha = solicitud.getCabecera().getFecha().toString();
+		fecha = Date.valueOf(strFecha);
+		try {
+			dblImpuesto = obtenerTotalSolicitud(solicitud) * 0.19;
+			dblImporteTotal = obtenerTotalSolicitud(solicitud);
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setDate(1,fecha);
+			ps.setDouble(2, dblImpuesto);
+			ps.setDouble(3, dblImporteTotal);
+			ps.setString(4, solicitud.getCabecera().getTipoPago());
+			ps.execute();
+			// Inicio
+			for(int i = 0; i < solicitud.getDetalle().size(); i++) {
+				fvalid = registrarDetalle(idVenta, solicitud.getDetalle().get(i));
+			}
+			//Fin
+			
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException("SQL exception occured insertando sugerencia", e);
@@ -169,6 +230,7 @@ public class JdbcMerchandizingRepository implements MerchandizingRepository{
 				}
 			}
 		}
+		return fvalid;
 	}
 	
 }
