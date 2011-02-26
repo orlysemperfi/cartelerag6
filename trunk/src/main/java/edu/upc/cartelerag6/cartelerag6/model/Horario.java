@@ -5,6 +5,9 @@ import java.util.Date;
 
 public class Horario {
 	private Integer idHorario;
+	private Integer idSala;
+	private Integer idLocal;
+	private Integer idPelicula;
 	private Date hora;
 	private Date fecha;
 	private Integer asientosDisponibles;
@@ -40,6 +43,24 @@ public class Horario {
 	}
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+	public void setIdSala(Integer idSala) {
+		this.idSala = idSala;
+	}
+	public Integer getIdSala() {
+		return idSala;
+	}
+	public void setIdLocal(Integer idLocal) {
+		this.idLocal = idLocal;
+	}
+	public Integer getIdLocal() {
+		return idLocal;
+	}
+	public void setIdPelicula(Integer idPelicula) {
+		this.idPelicula = idPelicula;
+	}
+	public Integer getIdPelicula() {
+		return idPelicula;
 	}
 	 
 }
