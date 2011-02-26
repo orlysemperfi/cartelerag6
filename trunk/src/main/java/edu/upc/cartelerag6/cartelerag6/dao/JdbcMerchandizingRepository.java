@@ -7,7 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 
+import edu.upc.cartelerag6.cartelerag6.model.Detalle_Venta;
 import edu.upc.cartelerag6.cartelerag6.model.Producto;
+import edu.upc.cartelerag6.cartelerag6.model.Solicitud;
+import edu.upc.cartelerag6.cartelerag6.model.Sugerencia;
+import edu.upc.cartelerag6.cartelerag6.model.Venta;
+import edu.upc.cartelerag6.cartelerag6.repository.ProductoRepository;
 import edu.upc.cartelerag6.cartelerag6.repository.MerchandizingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +22,10 @@ import org.springframework.stereotype.Service;
 public class JdbcMerchandizingRepository implements MerchandizingRepository{
 	@Autowired
 	private DataSource dataSource;
+
+	@Autowired
+	private ProductoRepository productoRepository;
+	
 	
 
 	public ArrayList<Producto> mostrarProductosPelicula(Integer idPelicula) {
@@ -88,5 +97,78 @@ public class JdbcMerchandizingRepository implements MerchandizingRepository{
 		return lproductos;
 	}
 
+
+	public Solicitud LLenarCarrito(Venta cabecera,
+			ArrayList<Detalle_Venta> detalle) {
+		
+		Solicitud s1 = null;
+		if (cabecera != null) {
+			s1 = new Solicitud();
+			s1.setCabecera(cabecera);
+			s1.setFecha_solicitud(cabecera.getFecha());
+			if (detalle != null){
+				if (detalle.isEmpty() ==false){
+					s1.setDetalle(detalle);
+				}
+				else {s1 = null;}
+			}
+			else {s1 = null;}
+		}
+		return s1;
+	}
+	
+	
+	public Double obtenerTotalSolicitud(Solicitud solicitud)
+	{
+		Producto producto;
+		Double dblTotal;
+		dblTotal = 0.00;
+		for(int i = 0; i < solicitud.getDetalle().size(); i++) {
+		    producto = productoRepository.obtenerProducto(solicitud.getDetalle().get(i).getIdProducto());
+		    dblTotal = dblTotal + (solicitud.getDetalle().get(i).getCantProducto() * Double.parseDouble(producto.getPrecioProducto().toString()));
+		}
+		return dblTotal;
+	}
+
+
+ 	public Boolean realizarVenta(Solicitud solicitud) {
+ 		Sugerencia s1 = null;
+ 		Integer idSugerencia;
+ 		idSugerencia =0;
+		String sql = "insert into T_SUGERENCIA(descripcion, estado, fecha_registro, fecha_atencion, flag_atencion)" +
+		" values (?, ?, ?, ?, ?)";
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(sql);/*
+			ps.setString(1,descripcion);
+			ps.setString(2, estado);
+			ps.setString(3, fecha_registro);
+			ps.setString(4, fecha_atencion);
+			ps.setString(5, flag_atencion);*/
+			ps.execute();
+			//s1 = new Sugerencia (idSugerencia, descripcion, estado,fecha_registro, fecha_atencion, flag_atencion);
+			return false;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("SQL exception occured insertando sugerencia", e);
+		} finally {
+			if (ps != null) {
+				try {
+					// Close to prevent database cursor exhaustion
+					ps.close();
+				} catch (SQLException ex) {
+				}
+			}
+			if (conn != null) {
+				try {
+					// Close to prevent database connection exhaustion
+					conn.close();
+				} catch (SQLException ex) {
+				}
+			}
+		}
+	}
 	
 }
