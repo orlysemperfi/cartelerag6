@@ -19,7 +19,7 @@ public class JdbcComentarioRepository implements ComentarioRepository {
 	@Autowired
 	private DataSource dataSource;
 
-	public Comentario registrarComentario(Integer idComentario, Integer idPelicula, String comentario, String estado, String fechaCreacion) {
+	public Comentario registrarComentario(Integer idComentario, Integer idPelicula, String comentario, String estado, Date fechaCreacion) {
 		Comentario c = null;
 		String sql = "insert into T_COMENTARIO(idPelicula," +
 		"comentario, estado, fechaRegistro) values (?, ?, ?, ?)";
@@ -32,7 +32,7 @@ public class JdbcComentarioRepository implements ComentarioRepository {
 			ps.setInt(1, 1);
 			ps.setString(2, comentario);
 			ps.setString(3, estado);
-			ps.setString(4, fechaCreacion);
+			ps.setDate(4, fechaCreacion);
 			ps.execute();
 			c = new Comentario (1, idPelicula, comentario, estado, fechaCreacion);
 			return c;
@@ -231,7 +231,7 @@ public class JdbcComentarioRepository implements ComentarioRepository {
 				 Integer idPelicula = rs.getInt("idPelicula");
 				 String txComentario = rs.getString("comentario");
 				 String estado = rs.getString("estado");
-				 String fechaRegistro = rs.getString("fechaRegistro");
+				 Date fechaRegistro = rs.getDate("fechaRegistro");
 				
 				comentario = new Comentario(idComentario, idPelicula, txComentario, estado, fechaRegistro);
 			}
@@ -253,7 +253,7 @@ public class JdbcComentarioRepository implements ComentarioRepository {
 				 Integer idPelicula = rs.getInt("idPelicula");
 				 String txComentario = rs.getString("comentario");
 				 String estado = rs.getString("estado");
-				 String fechaRegistro = rs.getString("fechaRegistro");
+				 Date fechaRegistro = rs.getDate("fechaRegistro");
 				 
 				comentario = new Comentario(idComentario, idPelicula, txComentario, estado, fechaRegistro);
 				if (comentario != null){ 
