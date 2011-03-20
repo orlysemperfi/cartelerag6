@@ -29,23 +29,23 @@ public class ComentarioTest {
 	
 	@Test
 	public void registrarUnComentario() {
-		comentario.registrarComentario(1, 1, "Test de comentario", "Pendiente", "01/01/2011");
+		comentario.registrarComentario(1, 1, "Test de comentario", "Pendiente", Date.valueOf("2011-01-01"));
 		assertEquals(1, comentario.listarComentarios(1, "Pendiente").size());
 	}
 	
 	@Test
 	public void registrarVariosComentarios() {
-		comentario.registrarComentario(1, 1, "Excelente pelicula.", "Pendiente", "01/01/2011");
-		comentario.registrarComentario(2, 1, "Poco realismo, mucha ficción.", "Pendiente", "01/01/2011");
-		comentario.registrarComentario(3, 1, "Buena, se las recomiendo.", "Pendiente", "01/01/2011");
-		comentario.registrarComentario(4, 1, "Pobre, no me gusto!!!!", "Pendiente", "01/01/2011");
-		comentario.registrarComentario(5, 1, "la mejor pelicula de la temporada.", "Pendiente", "01/01/2011");
+		comentario.registrarComentario(1, 1, "Excelente pelicula.", "Pendiente", Date.valueOf("2011-01-01"));
+		comentario.registrarComentario(2, 1, "Poco realismo, mucha ficción.", "Pendiente", Date.valueOf("2011-01-01"));
+		comentario.registrarComentario(3, 1, "Buena, se las recomiendo.", "Pendiente", Date.valueOf("2011-01-01"));
+		comentario.registrarComentario(4, 1, "Pobre, no me gusto!!!!", "Pendiente", Date.valueOf("2011-01-01"));
+		comentario.registrarComentario(5, 1, "la mejor pelicula de la temporada.", "Pendiente", Date.valueOf("2011-01-01"));
 		assertEquals(6, comentario.listarComentarios(1, "Pendiente").size());
 	}
 	
 	@Test
 	public void actualizarComentario() {
-		comentario.registrarComentario(1, 1, "Test de comentario", "Pendiente", "01/01/2011");
+		comentario.registrarComentario(1, 1, "Test de comentario", "Pendiente", Date.valueOf("2011-01-01"));
 		comentario.actualizarEstado(1, 1, "Rechazado");
 		assertEquals("Rechazado", comentario.listarComentario(1, 1).getEstado());
 		assertEquals("la mejor pelicula de la temporada.", comentario.listarComentario(6, 1).getComentario());
