@@ -7,7 +7,7 @@ public class Comentario {
 	private Integer idPelicula;
 	private String comentario;
 	private String estado;			// Pendiente - Rechazado - Publicado
-	private String fechaRegistro;
+	private Date fechaRegistro;
 	
 	
 
@@ -46,15 +46,15 @@ public class Comentario {
 	}
 	
 	//fecha Registro
-	public void setFechaRegistro(String valor) {
+	public void setFechaRegistro(Date valor) {
 		this.fechaRegistro = valor;
 	}
 	
-	public String getFechaRegistro() {
+	public Date getFechaRegistro() {
 		return this.fechaRegistro;
 	}
 
-	public Comentario(Integer idComentario, Integer idPelicula, String txComentario, String estado, String fechaCreacion){
+	public Comentario(Integer idComentario, Integer idPelicula, String txComentario, String estado, Date fechaCreacion){
 		this.idComentario =  idComentario;
 		this.idPelicula = idPelicula;
 		this.comentario =  txComentario;
