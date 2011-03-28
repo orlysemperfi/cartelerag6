@@ -10,8 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	
 	
-	<!-- import resource="classpath:application-config.xml"/  27-03-2011 -->
-	<context:component-scan base-package="edu/upc/cartelerag6/cartelerag6"/>
+	<import resource="classpath:application-config.xml"/>
 
 	<!-- Embedded H2 Database -->		
 	<jdbc:embedded-database id="dataSource" type="H2">
