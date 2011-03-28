@@ -11,10 +11,10 @@ import javax.sql.DataSource;
 import edu.upc.cartelerag6.cartelerag6.model.Comentario;
 import edu.upc.cartelerag6.cartelerag6.repository.ComentarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 
-@Service
+@Repository
 public class JdbcComentarioRepository implements ComentarioRepository {
 	@Autowired
 	private DataSource dataSource;
