@@ -11,7 +11,7 @@
 	<mvc:annotation-driven/>
 	
 	<!-- Esta linea le dice donde encontrar los @Controllers -->
-	<context:component-scan base-package="edu.upc.cartelera6.cartelera6.web"/>
+	<context:component-scan base-package="edu.upc.cartelerag6.cartelerag6.web"/>
 	
 	<!-- Maps '/' requests to the 'home' view -->
 	<mvc:view-controller path="/" view-name="home"/>
