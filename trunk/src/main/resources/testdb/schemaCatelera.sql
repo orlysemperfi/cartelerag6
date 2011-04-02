@@ -97,7 +97,7 @@ create table T_VENTA(
 	fecha date not null,
 	importeImpuesto double null,
 	importeTotal double not null,
-	tipoPago char(1) not null, --C= credito E=Efectivo
+	tipoPago char(1) not null,
 	unique(idVenta),
 	primary key (idVenta));		
 	
