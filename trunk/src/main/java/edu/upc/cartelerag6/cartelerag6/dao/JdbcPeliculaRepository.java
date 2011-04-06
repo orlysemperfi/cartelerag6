@@ -5,19 +5,103 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
 import javax.sql.DataSource;
 import edu.upc.cartelerag6.cartelerag6.model.Pelicula;
 import edu.upc.cartelerag6.cartelerag6.repository.PeliculaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 
-@Service
-public class JdbcPeliculaRepository implements PeliculaRepository{
-	@Autowired
-	private DataSource dataSource;
-	
+@Repository
+public class JdbcPeliculaRepository extends JdbcDaoSupport implements PeliculaRepository {
 
+	@Autowired
+	public JdbcPeliculaRepository(DataSource dataSource){
+		setDataSource(dataSource);
+	}
+
+	public List<Pelicula> obtenerTodasPeliculas() {
+		String sql = "select * from T_PELICULA";
+		List<Pelicula> 
+		  peliculas = getJdbcTemplate().query(sql, 
+				  	new PeliculaRowMapper());
+		return peliculas;
+	}
+
+	
+	public List<Pelicula>  MostrarDetallePeliculaActiva(Integer idPelicula) {
+		String sql = "select idPelicula, nomPelicula,anioProduccion, duracion, paisOrigen,genero, tipoEmision, flagSubtitulo, flagComentario, publicoObjetivo, sinopsis, fecIniCartelera, fecFinCartelera, estado, poster, trailer " +
+		"from T_PELICULA " +
+		"where idPelicula = ? "; 
+		List<Pelicula> 
+		  peliculas = getJdbcTemplate().query(sql,
+				    new Object[]{idPelicula}, 
+				  	new PeliculaRowMapper());
+		return peliculas;
+	}
+
+	public List<Pelicula> MostrarDetallePeliculaInactiva(Integer idPelicula) {
+		String sql = "select idPelicula, nomPelicula,fecIniCartelera, fecFinCartelera, estado, poster" +
+		"from T_PELICULA " +
+		"where idPelicula = ? "; 
+		List<Pelicula> 
+		  peliculas = getJdbcTemplate().query(sql,
+				    new Object[]{idPelicula}, 
+				  	new PeliculaInactivaRowMapper());
+		return peliculas;
+	}
+
+	private class PeliculaInactivaRowMapper 
+    implements ParameterizedRowMapper<Pelicula>{
+
+	public Pelicula mapRow(ResultSet rs, int rowNum)
+			throws SQLException {
+			Pelicula pelicula = null;
+			int idPelicula = rs.getInt("idPelicula");
+			String nomPelicula = rs.getString("nomPelicula");
+			Date fecIniCartelera = rs.getDate("fecIniCartelera");
+			Date fecFinCartelera = rs.getDate("fecFinCartelera");
+			String estado = rs.getString("estado");
+			String poster = rs.getString("poster");
+			pelicula = new Pelicula(idPelicula, nomPelicula, fecIniCartelera, fecFinCartelera, estado, poster);
+			return pelicula;
+	}		
+}
+	
+	private class PeliculaRowMapper 
+	     implements ParameterizedRowMapper<Pelicula>{
+
+		public Pelicula mapRow(ResultSet rs, int rowNum)
+				throws SQLException {
+			Pelicula pelicula = null;
+			int idPelicula = rs.getInt("idPelicula");
+			String nomPelicula = rs.getString("nomPelicula");
+			String anioProduccion = rs.getString("anioProduccion");
+			String duracion = rs.getString("duracion");
+			String paisOrigen = rs.getString("paisOrigen");
+			String genero = rs.getString("genero");
+			String tipoEmision = rs.getString("tipoEmision");
+			String flagSubtitulo = rs.getString("flagSubtitulo");
+			int flagComentario = rs.getInt("flagComentario");
+			String publicoObjetivo = rs.getString("publicoObjetivo");
+			String sinopsis = rs.getString("sinopsis");
+			Date fecIniCartelera = rs.getDate("fecIniCartelera");
+			Date fecFinCartelera = rs.getDate("fecFinCartelera");
+			String estado = rs.getString("estado");
+			String poster = rs.getString("poster");
+			String trailer = rs.getString("trailer");
+			pelicula = new Pelicula(idPelicula, nomPelicula,anioProduccion, duracion, paisOrigen,genero, tipoEmision, flagSubtitulo, flagComentario, publicoObjetivo, sinopsis, fecIniCartelera, fecFinCartelera, estado, poster, trailer);
+			return pelicula;
+		}		
+	}
+
+	
+/*
 	public Pelicula MostrarDetallePeliculaActiva(Integer idPelicula) {
 		String sql = "select idPelicula, nomPelicula,anioProduccion, duracion, paisOrigen,genero, tipoEmision, flagSubtitulo, flagComentario, publicoObjetivo, sinopsis, fecIniCartelera, fecFinCartelera, estado, poster, trailer " +
 		"from T_PELICULA " +
@@ -154,5 +238,5 @@ public class JdbcPeliculaRepository implements PeliculaRepository{
 			//throw new EmptyResultDataAccessException(1);
 		}
 		return pelicula;
-	}
+	}*/
 }
