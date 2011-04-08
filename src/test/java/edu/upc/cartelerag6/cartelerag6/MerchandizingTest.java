@@ -1,6 +1,7 @@
 package edu.upc.cartelerag6.cartelerag6;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.sql.Date;
 
 import org.junit.Test;
@@ -14,6 +15,7 @@ import edu.upc.cartelerag6.cartelerag6.model.Solicitud;
 import edu.upc.cartelerag6.cartelerag6.model.Detalle_Venta;
 import edu.upc.cartelerag6.cartelerag6.repository.MerchandizingRepository;
 import edu.upc.cartelerag6.cartelerag6.repository.ProductoRepository;
+import edu.upc.cartelerag6.cartelerag6.service.MerchandizingService;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,20 +26,26 @@ import static org.junit.Assert.*;
 public class MerchandizingTest {
 	
 	@Autowired
-	private MerchandizingRepository merchandizingRepository;
+	private MerchandizingService  service;
 	
-	@Autowired
-	private ProductoRepository productoRepository;
+	@Test
+	public void testObtenerListaProductos(){
+		List<Producto> 
+		  productos = service.mostrarProductosPelicula(1);
+		assertTrue(productos.size()>0);
+	}	
 	
 	@Test
 	public void testMostrarProductosPelicula() {
+		/*
 		ArrayList<Producto>  p1;
 		p1 = merchandizingRepository.mostrarProductosPelicula(1);
 		assertNotNull(p1);
-		assertEquals(true, p1.size() > 0);
+		assertEquals(true, p1.size() > 0);*/
 	}
-
+	/*
 	public Solicitud cargaSolicitud() {
+		
 		Venta cabecera;
 		cabecera = new Venta(1,Date.valueOf("2011-01-01"), "C");
 		ArrayList<Detalle_Venta> detalle =  new ArrayList<Detalle_Venta>();
@@ -93,6 +101,6 @@ public class MerchandizingTest {
 		System.out.println("Producto 2 - Stock Final= " + p4.getStockProducto().toString());
 		assertEquals( true, blnRpta);
 	}
-	
+	*/
 	
 }

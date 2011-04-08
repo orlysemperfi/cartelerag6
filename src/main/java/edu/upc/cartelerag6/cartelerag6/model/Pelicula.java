@@ -1,8 +1,14 @@
 package edu.upc.cartelerag6.cartelerag6.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Pelicula {
+public class Pelicula implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7789783307702730765L;
 	private int idPelicula;
 	private String nomPelicula;
 	private String anioProduccion;
@@ -150,6 +156,12 @@ public class Pelicula {
 		this.fecFinCartelera = fecFinCartelera;
 		this.estado = estado;
 		this.poster = poster;
+	}
+
+	@Override
+	public String toString() {
+		return "OfertaLaboral [idPelicula=" + idPelicula + ", nomPelicula=" + nomPelicula + ", genero="
+				+ genero + ", fecIniCartelera=" + fecIniCartelera + "]";
 	}
 	
 	

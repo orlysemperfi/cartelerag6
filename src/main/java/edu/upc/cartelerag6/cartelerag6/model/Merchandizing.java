@@ -1,8 +1,14 @@
 package edu.upc.cartelerag6.cartelerag6.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Merchandizing {
+public class Merchandizing implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7789783307702730765L;
 	private Integer idPelicula;
 	private Integer idProducto;
 	private Date    fecInicioVigencia;
@@ -56,5 +62,11 @@ public class Merchandizing {
 		this.fecInicioVigencia = fecInicioVigencia;
 		this.fecFinVigencia = fecFinVigencia;
 		this.estadoMerchandizing = estadoMerchandizing;
+	}
+
+	@Override
+	public String toString() {
+		return "Merchandizing [idPelicula=" + idPelicula + ", idProducto=" + idProducto + ", fecInicioVigencia="
+				+ fecInicioVigencia + ", fecFinVigencia=" + fecFinVigencia + "]";
 	}
 }

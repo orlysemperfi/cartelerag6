@@ -1,6 +1,13 @@
 package edu.upc.cartelerag6.cartelerag6.model;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7789783307702730765L;
 	private Integer idProducto;
 	private String  nomProducto;
 	private String  descProducto;
@@ -87,5 +94,11 @@ public class Producto {
 		this.rutaImagenProducto = rutaImagenProducto;
 		this.estadoProducto = estadoProducto;			
 
+	}
+
+	@Override
+	public String toString() {
+		return "Producto [idProducto=" + idProducto + ", nomProducto=" + nomProducto + ", descProducto="
+				+ descProducto + ", precioProducto=" + precioProducto + "]";
 	}
 }
