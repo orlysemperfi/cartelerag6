@@ -1,4 +1,4 @@
-<%@page contentType="text/html;charset=UTF-8"%>
+<%@page contentType="text/html;charset=iso-8859-1"%>
 <%@page pageEncoding="UTF-8"%>
 <%@ page session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -9,7 +9,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>Home - Home Page | Cinema - Free Website Template from Templates.com</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- meta http-equiv="Content-Type" content="text/html; charset=utf-8" /-->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="description" content="Place your description here" />
 <meta name="keywords" content="put, your, keyword, here" />
 <meta name="author" content="Templates.com - website templates provider" />
@@ -39,18 +40,31 @@
 				<div class="row-1">
 					<div class="fleft"><a href="index.html">Cinema <span>World</span></a></div>
 					<ul>
+					<!-- 
 						<li><a href="index.html"><img src="<c:url value="/resources/images/icon1-act.gif" />" alt="" /></a></li>
 						<li><a href="contact-us.html"><img src="<c:url value="/resources/images/icon2.gif" />" alt="" /></a></li>
 						<li><a href="sitemap.html"><img src="<c:url value="/resources/images/icon3.gif" />" alt="" /></a></li>
+ 					-->
+ 						<li><a href="/cartelerag6"><img src="<c:url value="/resources/images/icon1-act.gif" />" alt="" /></a></li>
+						<li><a href="#"><img src="<c:url value="/resources/images/icon2.gif" />" alt="" /></a></li>
+						<li><a href="#"><img src="<c:url value="/resources/images/icon3.gif" />" alt="" /></a></li>
+ 											
 					</ul>
 				</div>
 				<div class="row-2">
 					<ul>
+					<!-- 
 						<li><a href="index.html" class="active">Home</a></li>
 						<li><a href="about-us.html">About</a></li>
 						<li><a href="articles.html">Articles</a></li>
 						<li><a href="contact-us.html">Contacts</a></li>
 						<li class="last"><a href="sitemap.html">Sitemap</a></li>
+					 -->
+						<li><a href="/cartelerag6" class="active">Inicio</a></li>
+						<li><a href="Salas.htm">Salas</a></li>
+						<li><a href="peliculas.htm">Peliculas</a></li>
+						<li><a href="#">Contacts</a></li>
+						<li class="last"><a href="#">Sitemap</a></li>
 					</ul>
 				</div>
 			</div>
