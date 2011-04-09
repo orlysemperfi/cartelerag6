@@ -100,7 +100,7 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
 .inner_copy, .inner_copy a {border:0;float:right;background:#f00;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-50% 0 0 0;overflow:hidden;padding:0}
 /* FOOTER */
 #footer .left {background:url(/cartelerag6/resources/images/footer-left.gif) no-repeat left top}
-#footer .right {min-height:89px;height:auto !important;height:89px;background:url(images/footer-right.gif) no-repeat right top;text-align:center}
+#footer .right {min-height:89px;height:auto !important;height:89px;background:url(/cartelerag6/images/footer-right.gif) no-repeat right top;text-align:center}
 #footer .inside {padding:13px 0}
 #footer a {color:#2c6d9a}
 #slogan {width:940px;height:322px;position:relative;background:url(/cartelerag6/resources/images/banner-bg.gif) no-repeat left top;color:#1d1d1d}
