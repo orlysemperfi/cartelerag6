@@ -5,4 +5,7 @@
     <decorator name="default" page="default.jsp">
         <pattern>/*</pattern>
     </decorator>
+        <decorator name="default_admin" page="default_admin.jsp">
+        <pattern>/admin/*</pattern>
+    </decorator>
 </decorators>
