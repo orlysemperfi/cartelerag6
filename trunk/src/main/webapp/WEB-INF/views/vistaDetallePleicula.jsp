@@ -1,12 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 
-			<div id="content"><div class="inner_copy">More <a href="http://www.templatemonster.com/">Website Templates</a> at TemplateMonster.com!</div>
+			<div id="content">
 				<div class="box">
 					<div class="border-right">
 						<div class="border-left">
 							<div class="inner">
 								<h3><b>Detalle</b> <span>Pelicula</span></h3>
-								<table width=90% border =1>
+								<table width=90% border =1 align="center">
 									<tr style="width:100%">
 										<td width=100%>
 											<table border=1  >
@@ -40,7 +40,7 @@
 					<table border=1  >
 						<c:forEach items="${data1}" var="producto">
 						<tr valign=top>
-							<td width=40%><h4><c:out value="${producto.nomProducto}"/></h4><img src=<c:out value="${producto.rutaImagenProducto}"/> alt="" /></td>
+							<td width=50%>&nbsp;<h4><c:out value="${producto.nomProducto}"/></h4><img src=<c:out value="${producto.rutaImagenProducto}"/> alt="" />&nbsp;</td>
 							<td>
 								<br><br>
 								<p>
