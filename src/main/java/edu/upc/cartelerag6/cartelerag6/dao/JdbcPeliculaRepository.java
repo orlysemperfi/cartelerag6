@@ -46,6 +46,22 @@ public class JdbcPeliculaRepository extends JdbcDaoSupport implements PeliculaRe
 		return peliculas;
 	}
 
+	public List<Pelicula> obtenerTodasPeliculasPorNombre(String nombre, String genero) {
+		String sql = "select * from T_PELICULA where 1=1 ";
+		if (genero != "seleccione"){
+			sql += " and genero like '%" + genero + "%' ";
+		}
+		if (nombre != "") {
+			sql += " and upper(nomPelicula) like '%" + nombre + "%'";
+		}
+		
+		
+		List<Pelicula> 
+		  peliculas = getJdbcTemplate().query(sql, 
+				  	new PeliculaRowMapper());
+		return peliculas;
+	}
+
 	
 	public List<Pelicula>  MostrarDetallePeliculaActiva(Integer idPelicula) {
 		String sql = "select idPelicula, nomPelicula,anioProduccion, duracion, paisOrigen,genero, tipoEmision, flagSubtitulo, flagComentario, publicoObjetivo, sinopsis, fecIniCartelera, fecFinCartelera, estado, poster, trailer " +
