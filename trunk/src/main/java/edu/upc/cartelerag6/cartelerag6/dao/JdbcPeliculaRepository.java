@@ -1,20 +1,18 @@
 package edu.upc.cartelerag6.cartelerag6.dao;
 
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
+
 import edu.upc.cartelerag6.cartelerag6.model.Pelicula;
 import edu.upc.cartelerag6.cartelerag6.repository.PeliculaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 
 @Repository
@@ -24,6 +22,21 @@ public class JdbcPeliculaRepository extends JdbcDaoSupport implements PeliculaRe
 	public JdbcPeliculaRepository(DataSource dataSource){
 		setDataSource(dataSource);
 	}
+	
+	public boolean registrarPelicula(String nomPelicula,
+			String anioProduccion, String duracion, String paisOrigen,
+			String genero, String tipoEmision, String flagSubtitulo,
+			int flagComentario, String publicoObjetivo, String sinopsis,
+			java.sql.Date fecIniCartelera, java.sql.Date fecFinCartelera, String estado,
+			String poster, String trailer) {
+		String sql = "insert into T_PELICULA (nomPelicula,anioProduccion, duracion, paisOrigen,genero, tipoEmision, flagSubtitulo,flagComentario, publicoObjetivo, sinopsis,fecIniCartelera, fecFinCartelera, estado,poster, trailer) values " +
+		" (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		getJdbcTemplate().execute(sql);
+		return true;
+	}
+	
+	
 
 	public List<Pelicula> obtenerTodasPeliculas() {
 		String sql = "select * from T_PELICULA";
