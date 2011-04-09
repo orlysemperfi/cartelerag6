@@ -30,4 +30,7 @@ public class PeliculaServiceImpl implements PeliculaService {
 		return repository.registrarPelicula(nomPelicula, anioProduccion, duracion, paisOrigen, genero, tipoEmision, flagSubtitulo, flagComentario, publicoObjetivo, sinopsis, fecIniCartelera, fecFinCartelera, estado, poster, trailer);
 	}
 	
+	public List<Pelicula> obtenerTodasPeliculasPorNombre(String nombre, String genero){
+		return repository.obtenerTodasPeliculasPorNombre(nombre, genero);
+	}
 }

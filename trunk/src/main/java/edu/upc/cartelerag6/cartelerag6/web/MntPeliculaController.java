@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.upc.cartelerag6.cartelerag6.model.Pelicula;
@@ -35,6 +36,17 @@ public class MntPeliculaController {
 
   public ModelAndView insertar(HttpServletRequest request, HttpServletResponse response) {
       return new ModelAndView("/admin/mnt_peliculas_insert");
+  }
+  
+  @RequestMapping(value="/admin/mnt_peliculas", method=RequestMethod.POST)
+  public ModelAndView buscar(HttpServletRequest request, HttpServletResponse response){
+	  //System.out.println("valor: " + request.getParameter("txtBusqueda"));
+	  String nomPelicula = request.getParameter("txtBusqueda").toUpperCase();
+	  String genero = request.getParameter("cboGenero");
+	  //System.out.println("valor: " + request.getParameter("cboGenero"));
+	  
+	  request.setAttribute("peliculas", service.obtenerTodasPeliculasPorNombre(nomPelicula, genero));
+	  return new ModelAndView("/admin/mnt_peliculas");
   }
 
   public ModelAndView doInsertar(HttpServletRequest request, HttpServletResponse response) {
