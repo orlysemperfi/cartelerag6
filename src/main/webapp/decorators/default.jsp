@@ -45,6 +45,8 @@
 						<li><a href="contact-us.html"><img src="<c:url value="/resources/images/icon2.gif" />" alt="" /></a></li>
 						<li><a href="sitemap.html"><img src="<c:url value="/resources/images/icon3.gif" />" alt="" /></a></li>
  					-->
+ 						<label style="position:absolute; top:50px; left:600px; font-weight:bold; font-size:15px;">${usuario.nombre}</label>
+ 						<li><a href="home.html" >Login</a></li>
  						<li><a href="/cartelerag6"><img src="<c:url value="/resources/images/icon1-act.gif" />" alt="" /></a></li>
 						<li><a href="#"><img src="<c:url value="/resources/images/icon2.gif" />" alt="" /></a></li>
 						<li><a href="#"><img src="<c:url value="/resources/images/icon3.gif" />" alt="" /></a></li>
@@ -64,7 +66,7 @@
 						<li><a href="Salas.htm">Mantenimientos</a></li>
 						<li><a href="mnt_peliculas.htm">Busqueda</a></li>
 						<li><a href="boletos.htm">Boletos</a></li>
-						<li class="last"><a href="#">Sitemap</a></li>
+						<li class="last"><a href="#">Registro</a></li>
 					</ul>
 				</div>
 			</div>
