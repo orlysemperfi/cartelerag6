@@ -5,11 +5,12 @@
 				<div id="slogan">
 					<div class="image png"></div>
 					<div class="inside">
-						<h2>We are breaking<span>All Limitations</span></h2>
-						<p>Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris.</p>
-						<div class="wrapper"><a href="#" class="link1"><span><span>Learn More</span></span></a></div>
+						<h2>Rompemos<span>Todos los l&iacute;mites</span></h2>
+						<p>Se parte de Cartelera6 y accede a muchos beneficios.</p>
+						<div class="wrapper"><a href="registro.html" class="link1"><span><span>Registrarse</span></span></a></div>
 					</div>
 				</div>
+
 				<div class="box">
 					<div class="border-right">
 						<div class="border-left">
