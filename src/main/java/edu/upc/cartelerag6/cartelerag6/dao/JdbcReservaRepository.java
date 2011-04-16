@@ -29,7 +29,12 @@ public class JdbcReservaRepository extends JdbcDaoSupport implements ReservaRepo
 		 " cliente, pelicula , sala, horario, nroEntradas, tipoPago, direccionEnvio,fecha) " +
 		 " values (?,?,?,?,?,?,?,?)";
 		getJdbcTemplate().update(sql, cliente, pelicula, sala, horario, nroEntradas, tipoPago, direccionEnvio,fecha);
+		return true;
+	};
 
+	public boolean  eliminaReserva(int idReserva) {
+		String sql = "delete from T_RESERVA where idReserva = ? ";
+		getJdbcTemplate().update(sql, idReserva);
 		return true;
 	};
 

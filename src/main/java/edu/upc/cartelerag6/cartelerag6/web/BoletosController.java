@@ -36,12 +36,14 @@ public class BoletosController {
 
 	@RequestMapping(value="/Eliminaboletos" , method=RequestMethod.GET)
 	public String Elimina(@RequestParam("id") Integer id, Model model){
-		
+		boolean bRpta = false;
 		List<Reserva> reservas = service.obtenerTodasReservas(); 
 		model.addAttribute("data", reservas);
 		
 		System.out.println("valor: entro" + id);
-		return "boletos";
+		bRpta = service.eliminaReserva(id);
+		System.out.println("valor: entro" + id);
+		return VIEW_REDIRECT_BOLETO;
 	}
 
 	@RequestMapping(value="/boletos", method=RequestMethod.POST)

@@ -8,4 +8,5 @@ public interface ReservaService {
 	
 	boolean  registarReserva(int idReserva, String cliente, String pelicula, String sala, String horario, int nroEntradas, String tipoPago, String direccionEnvio,java.sql.Date fecha);
 	List<Reserva> obtenerTodasReservas();
+	boolean  eliminaReserva(int idReserva);
 }
