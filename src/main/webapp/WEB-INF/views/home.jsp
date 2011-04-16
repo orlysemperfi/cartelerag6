@@ -16,9 +16,7 @@
 						<div class="border-left">
 							<div class="inner">
 								<h3>Bienvenido a <b>Caterlera</b> <span>6</span></h3>
-								<p>Cinema World Site is a free web template created by <a href="http://www.templatemonster.com/" class="new_window">TemplateMonster.com</a> team. This website template is optimized for 1024X768 screen resolution. It is also XHTML &amp; CSS valid.</p>
-								<div class="img-box1"><img src="<c:url value="/resources/images/1page-img1.jpg" />" alt="" />This website template can be delivered in two packages - with PSD source files included and without them. If you need PSD source files, please go to the template download page at TemplateMonster to leave the e-mail address that you want the template ZIP package to be delivered to.</div>
-								<p>This website template has several pages: <a href="index.html">Home</a>, <a href="about-us.html">About us</a>, <a href="articles.html">Articles</a> (with Article page), <a href="contact-us.html">Contact us</a> (note that contact us form – doesn’t work), <a href="sitemap.html">Site Map</a>.</p>
+								<p>No te pierdas este estreno en nuestras salas. </p>
 							</div>
 						</div>
 					</div>
