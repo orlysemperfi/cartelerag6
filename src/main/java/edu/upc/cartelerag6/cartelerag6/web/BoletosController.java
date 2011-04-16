@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.upc.cartelerag6.cartelerag6.model.Pelicula;
+import edu.upc.cartelerag6.cartelerag6.model.Producto;
 import edu.upc.cartelerag6.cartelerag6.model.Reserva;
 import edu.upc.cartelerag6.cartelerag6.service.ReservaService;
 
@@ -31,6 +33,17 @@ public class BoletosController {
 		
 		return "boletos";
 	}
+
+	@RequestMapping(value="/Eliminaboletos" , method=RequestMethod.GET)
+	public String Elimina(@RequestParam("id") Integer id, Model model){
+		
+		List<Reserva> reservas = service.obtenerTodasReservas(); 
+		model.addAttribute("data", reservas);
+		
+		System.out.println("valor: entro" + id);
+		return "boletos";
+	}
+
 	@RequestMapping(value="/boletos", method=RequestMethod.POST)
 	public String grabaReserva(HttpServletRequest request, HttpServletResponse response){
 		boolean bRpta = false;
@@ -41,13 +54,9 @@ public class BoletosController {
 		int nroEntradas = Integer.valueOf(request.getParameter("txtNro"));
 		String tipoPago = request.getParameter("cboTipoPago");
 		String direccionEnvio = request.getParameter("txtDirecion");
-		Date fecha = Date.valueOf(request.getParameter("fecha"));
-		
+		Date fecha = Date.valueOf("2011-01-01");
 		
 		bRpta = service.registarReserva(0,cliente,pelicula,  sala, horario, nroEntradas, tipoPago, direccionEnvio, fecha);
-		System.out.println("valor: " + bRpta);
-		System.out.println("valor: " + cliente);
-		
 		return VIEW_REDIRECT_BOLETO;
 	}
 }
