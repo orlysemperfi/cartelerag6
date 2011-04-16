@@ -32,10 +32,19 @@ insert into T_SALA( numAsiento, estado) values(129, 'Activa');
 insert into T_SALA( numAsiento, estado) values(104, 'Activa');
 
 insert into T_PRODUCTO (nomProducto,descProducto,precioProducto,stockProducto,caracteristicasProducto,rutaImagenProducto,estadoProducto)
-values ('Bolsos para ninos', 'Bolsos para ninos', 20,50,'Edición limitada', 'resources/images/bolsos_ts3.jpg', 'A');
+values ('Bolsos para ninos', 'Bolsos para ninos', 20,50,'Edicion limitada', 'resources/images/bolsos_ts3.jpg', 'A');
 
 insert into T_PRODUCTO (nomProducto,descProducto,precioProducto,stockProducto,caracteristicasProducto,rutaImagenProducto,estadoProducto)
-values ('Polo ', 'Polo para niños', 20,50,'Edición limitada', 'ruta imagen', 'A');
+values ('Etiquetas decorativas', 'Etiquetas decorativas', 5.00,50,'Edicion limitada', 'resources/images/Woody.jpg', 'A');
+
+insert into T_PRODUCTO (nomProducto,descProducto,precioProducto,stockProducto,caracteristicasProducto,rutaImagenProducto,estadoProducto)
+values ('Muneco Pincipe Persia', 'Muneco Pincipe Persia', 8.00,50,'Edicion limitada', 'resources/images/principe.jpg', 'A');
 
 insert into T_MERCHANDIZING (idPelicula,idProducto,fecInicioVigencia,fecFinVigencia,estadoMerchandizing)
 values (1, 1, '2011-01-01','2012-01-01', 'A');
+
+insert into T_MERCHANDIZING (idPelicula,idProducto,fecInicioVigencia,fecFinVigencia,estadoMerchandizing)
+values (1, 2, '2011-01-01','2012-01-01', 'A');
+
+insert into T_MERCHANDIZING (idPelicula,idProducto,fecInicioVigencia,fecFinVigencia,estadoMerchandizing)
+values (2, 3, '2011-01-01','2012-01-01', 'A');
