@@ -24,26 +24,26 @@
 														</tr>
 													</c:forEach>
 												</table>
+												<div class="wrapper"><br><a href='<c:url value="/Lpeliculas"/>' class="link2"><span><span>Peliculas</span></span></a></div>
 											</td>
 											<td width=50%>
+											<form method="post" name="frmGraba" id="frmGraba">
 												<table border=1  >
 													<tr>
-														<td align=center width=150px>Id</td>
-														<td ><input type="text" id=txtId name=txtId ></td>
-													</tr>
-													<tr>
 														<td align=center >Nro. Asientos</td>
-														<td ><input type="text" id=txtId name=txtId></td>
+														<td ><input type="text" id=txtAsientos name=txtAsientos></td>
 													</tr>
 													<tr>
 														<td align=center >Estado</td>
-														<td >	<select rows=5>
-																	<option>Activo</option>
-																	<option>Eliminado</option>
+														<td >	<select id =cboEstado name=cboEstado rows=5>
+																	<option value ="Activa">Activa</option>
+																	<option value ="Eliminada">Eliminada</option>
 																</select>
 														</td>
 													</tr>
 												</table>
+											</form>	
+												<br><div class="link2" onclick="document.frmGraba.submit();" ><span><span>Grabar</span></span></div>
 											</td>
 										</tr>
 									</tr>

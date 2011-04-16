@@ -17,4 +17,8 @@ public class SalaServiceImpl implements SalaService {
 		return repository.obtenerTodasSalas();
 	}
 
+	public boolean registrarSala(Integer numAsiento, String estado){
+		return repository.registrarSala(numAsiento, estado);
+	}
+
 }

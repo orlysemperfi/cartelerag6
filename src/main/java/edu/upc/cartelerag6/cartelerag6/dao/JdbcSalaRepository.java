@@ -31,6 +31,16 @@ public class JdbcSalaRepository extends JdbcDaoSupport implements SalaRepository
 		return salas;
 	}
 
+	public boolean registrarSala(Integer numAsiento, String estado){
+		String sql = "insert into T_SALA ( " +
+			 "numAsiento, estado )" +
+			 " values (?,?)";
+		getJdbcTemplate().update(sql, 
+				numAsiento,
+				estado);
+		return true;
+	}
+
 	private class SalaRowMapper implements ParameterizedRowMapper<Sala>{
 
 		public Sala mapRow(ResultSet rs, int rowNum)
