@@ -24,7 +24,7 @@
 														</tr>
 													</c:forEach>
 												</table>
-												<div class="wrapper"><br><a href='<c:url value="/Lpeliculas"/>' class="link2"><span><span>Peliculas</span></span></a></div>
+												<div class="wrapper"><br><a href='<c:url value="/peliculas"/>' class="link2"><span><span>Peliculas</span></span></a></div>
 											</td>
 											<td width=50%>
 											<form method="post" name="frmGraba" id="frmGraba">
