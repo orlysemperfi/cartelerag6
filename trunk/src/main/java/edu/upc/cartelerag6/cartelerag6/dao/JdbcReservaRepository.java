@@ -24,11 +24,11 @@ public class JdbcReservaRepository extends JdbcDaoSupport implements ReservaRepo
 	}
 	
 	
-	public boolean  registarReserva(int idReserva, String cliente, String sala, String horario, int nroEntradas, String tipoPago, String direccionEnvio,java.sql.Date fecha) {
+	public boolean  registarReserva(int idReserva, String cliente,String pelicula, String sala, String horario, int nroEntradas, String tipoPago, String direccionEnvio,java.sql.Date fecha) {
 		String sql = "insert into T_RESERVA ( " +
-		 " cliente, sala, horario, nroEntradas, tipoPago, direccionEnvio,fecha) " +
+		 " cliente, pelicula , sala, horario, nroEntradas, tipoPago, direccionEnvio,fecha) " +
 		 " values (?,?,?,?,?,?,?,?)";
-		getJdbcTemplate().update(sql, cliente, sala, horario, nroEntradas, tipoPago, direccionEnvio,fecha);
+		getJdbcTemplate().update(sql, cliente, pelicula, sala, horario, nroEntradas, tipoPago, direccionEnvio,fecha);
 
 		return true;
 	};
@@ -49,13 +49,14 @@ public class JdbcReservaRepository extends JdbcDaoSupport implements ReservaRepo
 			Reserva reserva = null;
 			int idReserva = rs.getInt("idReserva");
 			String cliente = rs.getString("cliente");
+			String pelicula = rs.getString("pelicula");
 			String sala = rs.getString("sala");
 			String horario = rs.getString("horario");
 			int nroEntradas = rs.getInt("nroEntradas");
 			String tipoPago = rs.getString("tipoPago");
 			String direccionEnvio = rs.getString("direccionEnvio");
 			Date fecha = rs.getDate("fecha");
-			reserva = new Reserva(idReserva, cliente, sala, horario, nroEntradas, tipoPago, direccionEnvio,fecha);
+			reserva = new Reserva(idReserva, cliente, pelicula , sala, horario, nroEntradas, tipoPago, direccionEnvio,fecha);
 			return reserva;
 		}		
 	}
