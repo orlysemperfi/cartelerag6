@@ -35,7 +35,7 @@
 													</tr>
 													<tr>
 														<td align=center ><font>Año</font></td>
-														<td ><input type="text" id=txtAnio name=txtAnio size=5 vaue="1987"></td>
+														<td ><input type="text" id=txtAnio name=txtAnio size=5 value="1987"></td>
 													</tr>
 													<tr>
 														<td align=center ><font>Duracion</font></td>
@@ -51,7 +51,7 @@
 													</tr>
 													<tr>
 														<td align=center ><font>Ruta Trailer</font></td>
-														<td ><input type="text" id=txtRutaTrailer name=txtRutaTrailer size=40></td>
+														<td ><input type="text" id=txtRutaTrailer name=txtRutaTrailer size=40 value="resources/movies/nueva_pelicula.wma"></td>
 													</tr>
 													<tr>
 														<td align=center ><font>Pais</font></td>
