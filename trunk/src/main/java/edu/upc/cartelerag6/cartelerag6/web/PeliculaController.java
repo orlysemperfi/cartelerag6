@@ -41,24 +41,25 @@ public class PeliculaController {
 	@RequestMapping(value="/peliculas", method=RequestMethod.POST)
 	public String grabaPelicula(HttpServletRequest request, HttpServletResponse response){
 		boolean bRpta = false;
-		String nomPelicula = "Los Intocables";
-		String anioProduccion = "1987";
-		String duracion = "119 minutos";
-		String paisOrigen = "USA";
-		String genero = "DRAMA";
+		String nomPelicula = request.getParameter("txtNombre");
+		String anioProduccion = request.getParameter("txtAnio");
+		String duracion = request.getParameter("txtDuracion");
+		String paisOrigen = request.getParameter("cboPais");
+		String genero = request.getParameter("cboGenero");
 		String tipoEmision = "";  
 		String flagSubtitulo= "";
 		int flagComentario= 1;
 		String publicoObjetivo= "";
-		String sinopsis= "Chicago, años 30. Época de la Ley Seca. El idealista agente federal Eliot Ness persigue implacablemente al gángster Al Capone. La falta de pruebas le impide acusarlo de asesinato, extorsión y comercio ilegal de alcohol, pero encontrará un medio para inculparlo por otra clase de delitos. (FILMAFFINITY)";
+		String sinopsis= request.getParameter("txtSinopsis");//"Chicago, años 30. Época de la Ley Seca. El idealista agente federal Eliot Ness persigue implacablemente al gángster Al Capone. La falta de pruebas le impide acusarlo de asesinato, extorsión y comercio ilegal de alcohol, pero encontrará un medio para inculparlo por otra clase de delitos. (FILMAFFINITY)";
 		java.sql.Date fecIniCartelera = java.sql.Date.valueOf("2011-01-01");
 		java.sql.Date fecFinCartelera = java.sql.Date.valueOf("2012-01-01");
-		String poster= "resources/images/nueva_pelicula.jpg";
-		String trailer= "ruta trailer";
+		String poster= request.getParameter("txtRutaImagen");// "resources/images/nueva_pelicula.jpg";
+		String trailer= request.getParameter("txtRutaTrailer");;
 		String estado = "Activo";
 		
-		//bRpta = service.registarPelicula(nomPelicula, anioProduccion, duracion, paisOrigen, genero, tipoEmision, flagSubtitulo, flagComentario, publicoObjetivo, sinopsis, fecIniCartelera,fecFinCartelera, estado, poster, trailer);
+		bRpta = service.registarPelicula(nomPelicula, anioProduccion, duracion, paisOrigen, genero, tipoEmision, flagSubtitulo, flagComentario, publicoObjetivo, sinopsis, fecIniCartelera,fecFinCartelera, estado, poster, trailer);
 		System.out.println(nomPelicula);
+		System.out.println(genero);
 		System.out.println(bRpta );
 		return VIEW_REDIRECT_PELICULA;
 	}
