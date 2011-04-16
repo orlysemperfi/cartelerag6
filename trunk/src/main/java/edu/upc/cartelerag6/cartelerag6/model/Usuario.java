@@ -1,8 +1,14 @@
 package edu.upc.cartelerag6.cartelerag6.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Usuario {
+public class Usuario implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7789783307702730765L;
 	private Integer idUsuario;
 	private String login;
 	private String password;
@@ -17,23 +23,26 @@ public class Usuario {
 	private String dni;
 	private String tipo;
 	
-	public Usuario(String login2, String password2, String estado2,
-			String nombre2, String apellido2, String puesto2,
-			java.sql.Date fec_Creacion2, java.sql.Date fec_Caducidad2,
-			String telefono2, String email2, String dni2, String tipo2) {
-		// TODO Auto-generated constructor stub
+
+	public Usuario(int idUsuario, String login, String password,
+			String nombre, String apellido) {
+		this.idUsuario = idUsuario;
+		this.login = login;
+		this.password = password;
+		this.nombre = nombre;
+		this.apellido = apellido;
 	}
 	
-	public Usuario(int idUsuario) {
-		// TODO Auto-generated constructor stub
-	}
-	
+	public Usuario() {}
+
 	public Integer getIdUsuario() {
 		return idUsuario;
 	}
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
 	}
+	
+	
 	public String getLogin() {
 		return login;
 	}
@@ -107,8 +116,12 @@ public class Usuario {
 		this.tipo = tipo;
 	}
 	
-	
-		
-	
-	
+	@Override
+	public String toString() {
+		return "Usuario [idUsuario=" + idUsuario + ", login=" + login + ", password="
+				+ password + ", estado=" + estado + ", nombre=" + nombre
+				+ ", apellido=" + apellido + ", puesto=" + puesto + ", fec_Creacion=" + fec_Creacion
+				+ ", fec_Caducidad=" + fec_Caducidad + ", telefono=" + telefono + ", email=" + email + ", dni=" + dni + ", tipo=" + tipo +"]";
+	}
+
 }
