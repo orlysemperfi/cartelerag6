@@ -23,20 +23,26 @@ public class JdbcPeliculaRepository extends JdbcDaoSupport implements PeliculaRe
 		setDataSource(dataSource);
 	}
 	
-	public boolean registrarPelicula(String nomPelicula,
+	public boolean registarPelicula(String nomPelicula,
 			String anioProduccion, String duracion, String paisOrigen,
 			String genero, String tipoEmision, String flagSubtitulo,
 			int flagComentario, String publicoObjetivo, String sinopsis,
 			java.sql.Date fecIniCartelera, java.sql.Date fecFinCartelera, String estado,
-			String poster, String trailer) {
-		String sql = "insert into T_PELICULA (nomPelicula,anioProduccion, duracion, paisOrigen,genero, tipoEmision, flagSubtitulo,flagComentario, publicoObjetivo, sinopsis,fecIniCartelera, fecFinCartelera, estado,poster, trailer) values " +
-		" (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		
-		getJdbcTemplate().execute(sql);
+			String poster, String trailer){
+
+		String sql = "insert into T_PELICULA ( " +
+		 " nomPelicula,anioProduccion, duracion, paisOrigen,genero, tipoEmision, flagSubtitulo,flagComentario, publicoObjetivo, sinopsis,fecIniCartelera, fecFinCartelera, estado,poster, trailer)" +
+		 " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		getJdbcTemplate().update(sql, 
+				nomPelicula,
+				anioProduccion, duracion, paisOrigen,
+				genero, tipoEmision, flagSubtitulo,
+				flagComentario, publicoObjetivo, sinopsis,
+				fecIniCartelera, fecFinCartelera, estado,
+				poster, trailer);
+
 		return true;
-	}
-	
-	
+	};
 
 	public List<Pelicula> obtenerTodasPeliculas() {
 		String sql = "select * from T_PELICULA";
