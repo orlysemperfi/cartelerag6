@@ -7,12 +7,23 @@ public class Reserva implements Serializable{
 	private static final long serialVersionUID = -7789783307702730765L;
 	private int idReserva;
 	private String cliente;
+	private String pelicula;
 	private String sala;
 	private String horario;
 	private int nroEntradas;
 	private String tipoPago;
 	private String direccionEnvio;
 	private Date fecha;
+
+	
+	
+	public String getPelicula() {
+		return pelicula;
+	}
+
+	public void setPelicula(String pelicula) {
+		this.pelicula = pelicula;
+	}
 
 	public Date getFecha() {
 		return fecha;
@@ -80,10 +91,11 @@ public class Reserva implements Serializable{
 	}
 
 	
-	public Reserva(int idReserva, String cliente, String sala, String horario, int nroEntradas, String tipoPago, String direccionEnvio,Date fecha) {
+	public Reserva(int idReserva, String cliente, String pelicula, String sala, String horario, int nroEntradas, String tipoPago, String direccionEnvio,Date fecha) {
 		//super();
 		this.idReserva = idReserva;
 		this.cliente = cliente;
+		this.pelicula = pelicula;
 		this.sala = sala;
 		this.horario = horario;
 		this.nroEntradas = nroEntradas;
