@@ -1,13 +1,10 @@
 #summary One-sentence summary of this page.
 
-= Introduction = Proyecto para el curso e Desarrolo WEB
+Proyecto para el curso e Desarrolo WEB
 
-Add your content here.
+Proyecto el curso de desarrollo pa entorno WEB. 
+Tecnologia Usada: Spring, MAVEN
+BD: H2
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+* Para descargar el proyecto acede al siguiente LINK:
