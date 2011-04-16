@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.upc.cartelerag6.cartelerag6.model.Pelicula;
+import edu.upc.cartelerag6.cartelerag6.model.Sala;
 import edu.upc.cartelerag6.cartelerag6.model.Producto;
 import edu.upc.cartelerag6.cartelerag6.model.Reserva;
 import edu.upc.cartelerag6.cartelerag6.service.ReservaService;
-
+import edu.upc.cartelerag6.cartelerag6.service.SalaService;
+import edu.upc.cartelerag6.cartelerag6.service.PeliculaService;
 @Controller
 public class BoletosController {
 	private static final String VIEW_REDIRECT_BOLETO = "redirect:/boletos";
@@ -25,11 +27,24 @@ public class BoletosController {
 	@Autowired
 	ReservaService service;
 	
+	@Autowired
+	SalaService service1;
+
+	@Autowired
+	PeliculaService service2;
+	
 	@RequestMapping(value="/boletos")
 	public String index(Model model){
 		
 		List<Reserva> reservas = service.obtenerTodasReservas(); 
 		model.addAttribute("data", reservas);
+		
+		List<Sala> salas = service1.obtenerTodasSalas(); 
+		model.addAttribute("dataSala", salas);
+
+		List<Pelicula> peliculas = service2.obtenerTodasPeliculas(); 
+		model.addAttribute("dataPelicula", peliculas);
+
 		
 		return "boletos";
 	}

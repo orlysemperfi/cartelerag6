@@ -23,18 +23,18 @@
 													<tr>
 														<td align=center ><font>Pelicula</font></td>
 														<td >	<select id =cboPelicula name=cboPelicula rows=5>
-																	<option value ="TOY STORY">TOY STORY</option>
-																	<option value ="PRINCIPE DE PERSIA" >PRINCIPE DE PERSIA</option>
-																	<option value ="CREPUSCULO">CREPUSCULO</option>
+																	<c:forEach items="${dataPelicula}" var="peliculas">
+																	<option value ='<c:out value="${peliculas.nomPelicula}"/>'><c:out value="${peliculas.nomPelicula}"/></option>
+																	</c:forEach>
 																</select>
 														</td>
 													</tr>
 													<tr>
 														<td align=center ><font>Sala</font></td>
 														<td >	<select id =cboSala name=cboSala rows=5>
-																	<option value ="SALA 1">SALA 1</option>
-																	<option value ="SALA 2">SALA 2</option>
-																	<option value ="SALA 3">SALA 3</option>
+																<c:forEach items="${dataSala}" var="salas">
+																	<option >SALA<c:out value="${salas.idSala}"/></option>
+																</c:forEach>
 																</select>
 														</td>
 													</tr>
