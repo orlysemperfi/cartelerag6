@@ -27,6 +27,6 @@ public class BoletosController {
 		List<Pelicula> peliculas = service.obtenerTodasPeliculas(); 
 		model.addAttribute("data", peliculas);
 		
-		return "vistaMantPeliculas";
+		return "boletos";
 	}
 }

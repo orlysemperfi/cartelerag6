@@ -63,7 +63,7 @@
 						<li><a href="/cartelerag6" class="active">Inicio</a></li>
 						<li><a href="Salas.htm">Mantenimientos</a></li>
 						<li><a href="mnt_peliculas.htm">Busqueda</a></li>
-						<li><a href="#">Contacts</a></li>
+						<li><a href="boletos.htm">Boletos</a></li>
 						<li class="last"><a href="#">Sitemap</a></li>
 					</ul>
 				</div>
