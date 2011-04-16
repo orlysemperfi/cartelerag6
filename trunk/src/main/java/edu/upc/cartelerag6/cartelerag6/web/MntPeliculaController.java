@@ -28,17 +28,17 @@ public class MntPeliculaController {
         this.service = service;
     }
 
-    @RequestMapping(value="/admin/mnt_peliculas")
+    @RequestMapping(value="/mnt_peliculas")
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
       request.setAttribute("peliculas", service.obtenerTodasPeliculas());
-      return new ModelAndView("/admin/mnt_peliculas");
+      return new ModelAndView("/mnt_peliculas");
   }
 
   public ModelAndView insertar(HttpServletRequest request, HttpServletResponse response) {
-      return new ModelAndView("/admin/mnt_peliculas_insert");
+      return new ModelAndView("/mnt_peliculas_insert");
   }
   
-  @RequestMapping(value="/admin/mnt_peliculas", method=RequestMethod.POST)
+  @RequestMapping(value="/mnt_peliculas", method=RequestMethod.POST)
   public ModelAndView buscar(HttpServletRequest request, HttpServletResponse response){
 	  //System.out.println("valor: " + request.getParameter("txtBusqueda"));
 	  String nomPelicula = request.getParameter("txtBusqueda").toUpperCase();
@@ -46,7 +46,7 @@ public class MntPeliculaController {
 	  //System.out.println("valor: " + request.getParameter("cboGenero"));
 	  
 	  request.setAttribute("peliculas", service.obtenerTodasPeliculasPorNombre(nomPelicula, genero));
-	  return new ModelAndView("/admin/mnt_peliculas");
+	  return new ModelAndView("/mnt_peliculas");
   }
 
   public ModelAndView doInsertar(HttpServletRequest request, HttpServletResponse response) {
