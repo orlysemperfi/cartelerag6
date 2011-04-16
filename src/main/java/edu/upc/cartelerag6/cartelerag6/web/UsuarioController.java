@@ -28,7 +28,8 @@ public class UsuarioController {
 	
 	@Autowired
 	UsuarioService service;
-	
+	@Autowired
+	PeliculaService service1;
 	
 	
 	@RequestMapping(value="/validarUsuario")
@@ -44,6 +45,8 @@ public class UsuarioController {
 		if(usuario == null){
 			direccion = "/login";
 		}else{
+			List<Pelicula> peliculas = service1.obtenerTodasPeliculas(); 
+			model.addAttribute("data", peliculas);
 			direccion = "/home";
 		}
 		
