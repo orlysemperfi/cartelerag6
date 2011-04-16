@@ -6,10 +6,10 @@
 						<div class="border-left">
 							<div class="inner">
 								<h3><b>Detalle</b> <span>Pelicula</span></h3>
-								<table width=90% border =1 align="center">
+								<table width=90% border =0 align="center">
 									<tr style="width:100%">
 										<td width=100%>
-											<table border=1  >
+											<table border=0  >
 												<c:forEach items="${data}" var="pelicula">
 													<tr valign=top>
 														<td width=40%><h4><c:out value="${pelicula.nomPelicula}"/></h4><img src=<c:out value="${pelicula.poster}"/> alt="" /></td>
@@ -36,16 +36,12 @@
 					</div>
 				</div>
 				<div class="content">
-					<h3>Souvenirs</h3>
-					<table border=1  >
+					<h3>Souvenirs</span></h3>
+					<table border=0  >
 						<c:forEach items="${data1}" var="producto">
 						<tr valign=top>
-							<td width=50%>&nbsp;<h4><c:out value="${producto.nomProducto}"/></h4><img src=<c:out value="${producto.rutaImagenProducto}"/> alt="" />&nbsp;</td>
-							<td>
-								<br><br>
-								<p>
-								Precio:&nbsp;<c:out value="${producto.precioProducto}"/><br>
-								</p>
+							<td width=40%><h4><c:out value="${producto.nomProducto}"/></h4><img width=160px height=120px src=<c:out value="${producto.rutaImagenProducto}"/> alt="" />
+								<br>Precio:<c:out value="${producto.precioProducto}"/><br>
 							</td>
 						</tr>
 						<tr>
