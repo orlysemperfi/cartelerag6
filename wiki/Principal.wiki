@@ -1,10 +1,10 @@
-#summary One-sentence summary of this page.
-
 Proyecto para el curso e Desarrolo WEB
 
-Proyecto el curso de desarrollo pa entorno WEB. 
+Proyecto: Cartelera 6
+Descripción: Muestra la cartelera actual y permite realizar reserva de boletos virtuales.
+
 Tecnologia Usada: Spring, MAVEN
 BD: H2
 
 
-* Para descargar el proyecto acede al siguiente LINK:
+* Para descargar el proyecto acede al siguiente LINK: http://cartelerag6.googlecode.com/svn/trunk/
